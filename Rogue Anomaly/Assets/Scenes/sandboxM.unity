@@ -226,6 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1176464878}
+  - component: {fileID: 1176464879}
   m_Layer: 0
   m_Name: MutatorHandler
   m_TagString: Untagged
@@ -248,6 +249,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1176464879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176464877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d51e2304c73a94c8243e96c85f1942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllMutators:
+  - {fileID: 11400000, guid: 7e960c12814b39e4ca665848cd15d5e2, type: 2}
+  - {fileID: 11400000, guid: cd62ea2ced0b6b54dac196a99156b654, type: 2}
+  - {fileID: 11400000, guid: ed7dc5f0af168d24a98014dd506009c7, type: 2}
+  ActiveMutators: []
+  AvailableMutators: []
 --- !u!1 &1722454067
 GameObject:
   m_ObjectHideFlags: 0

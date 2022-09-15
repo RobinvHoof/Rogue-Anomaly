@@ -13,6 +13,10 @@ public class Mutator : ScriptableObject
 
     public string Description;
 
-    public float EffectAmount;
+    public float EffectAmountPositive;
+
+    public float EffectAmountNegative;
+
+    public int TierLevel;
 
 }

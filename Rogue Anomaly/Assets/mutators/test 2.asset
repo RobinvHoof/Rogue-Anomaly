@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb0e4ab41403e1e45b26a2de324bbd56, type: 3}
-  m_Name: test
+  m_Name: test 2
   m_EditorClassIdentifier: 
-  MutatorID: 0
+  MutatorID: 1
   Title: test1
   Description: test 1 description
   EffectAmountPositive: 0
