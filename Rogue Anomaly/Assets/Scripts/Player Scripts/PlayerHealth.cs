@@ -24,4 +24,9 @@ public class PlayerHealth : MonoBehaviour
     {
         hitPoints = Mathf.Clamp(hitPoints + healthAmount, 0, maxHealth);
     }
+
+    public int GetCurrentHitPoints()
+    {
+        return hitPoints;
+    }
 }
