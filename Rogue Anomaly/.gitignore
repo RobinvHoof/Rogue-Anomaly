@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# User setting files
+Rogue Anomaly/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+
