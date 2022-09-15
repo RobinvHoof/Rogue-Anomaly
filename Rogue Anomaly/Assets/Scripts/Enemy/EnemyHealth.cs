@@ -12,9 +12,9 @@ public class EnemyHealth : MonoBehaviour
         hitPoints = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damageAmount)
     {
-        hitPoints -= damage;
+        hitPoints -= damageAmount;
 
         if (hitPoints <= 0)
         {
@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
-        GetComponent<Animator>().SetTrigger("die");
+        // Enable once animations are finished
+        //GetComponent<Animator>().SetTrigger("die");
     }
 }
