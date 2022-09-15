@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -12,18 +10,13 @@ public class PlayerHealth : MonoBehaviour
         hitPoints = maxHealth;
     }
 
-    void Update()
-    {
-        
-    }
-
     public void TakeDamage(int damageAmount)
     {
         hitPoints -= damageAmount;
 
         if (hitPoints <= 0)
         {
-            // TODO Trigger death
+            GetComponent<PlayerDeathHandler>().HandleDeath();
         }
     }
 
