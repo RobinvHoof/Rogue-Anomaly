@@ -1,14 +1,14 @@
 using UnityEngine;
-using StandardAssets;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerDeathHandler : MonoBehaviour
 {
     [SerializeField] Canvas gameOverCanvas;
-    FPSController playerController;
+    FirstPersonController playerController;
 
     private void Start() {
         gameOverCanvas.enabled = false;
-        playerController = GetComponent<FPSController>();
+        playerController = GetComponent<FirstPersonController>();
     }
 
     public void HandleDeath()
