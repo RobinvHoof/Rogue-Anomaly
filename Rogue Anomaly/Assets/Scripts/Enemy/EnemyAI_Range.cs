@@ -12,14 +12,17 @@ public class EnemyAI_Range : MonoBehaviour
 
     const float turningSpeed = 2;
 
+    NavMeshAgent navMeshAgent;
 
     void Start()
     {
         target = GameObject.Find("FPSController").transform;
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
+        navMeshAgent.SetDestination(target.position);
         RotateToTarget();
     }
 
