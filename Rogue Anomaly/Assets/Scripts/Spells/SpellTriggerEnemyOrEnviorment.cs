@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellTrigger : MonoBehaviour
+public class SpellTriggerEnviorment : MonoBehaviour
 {
     [SerializeField]
     GameObject impactParticle;
@@ -11,7 +11,7 @@ public class SpellTrigger : MonoBehaviour
     {
         if(other.tag != "Player")
         {
-            if (other.tag == "Enemy")
+            if (other.tag == "Enemy" || other.tag == "Environment")
             {
                 this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
             }

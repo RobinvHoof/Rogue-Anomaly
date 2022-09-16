@@ -18,7 +18,7 @@ public class SpawnSpell : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             GameObject obj = Instantiate(currentSpell, transform.position, transform.rotation);
-            obj.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
+            obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
         }
     }
 }
