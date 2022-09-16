@@ -11,10 +11,7 @@ public class SpellTriggerEnviorment : MonoBehaviour
     {
         if(other.tag != "Player")
         {
-            if (other.tag == "Enemy" || other.tag == "Environment")
-            {
-                this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
-            }
+            this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
             GameObject obj = Instantiate(impactParticle, gameObject.transform.position, gameObject.transform.rotation); // Make sure this looks at the camera!
             Destroy(obj, 1f);
             Destroy(gameObject);
