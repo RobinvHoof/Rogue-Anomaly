@@ -9698,7 +9698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798f5f9f9d4804f42a78e72eee7b7be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 20
+  radius: 5
 --- !u!199 &199541557569965598
 ParticleSystemRenderer:
   serializedVersion: 6
