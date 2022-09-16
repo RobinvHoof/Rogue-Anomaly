@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IAttackable
 {
     [SerializeField] int maxHealth = 100;
     [SerializeField] float healthRegenerationRate = 1;
