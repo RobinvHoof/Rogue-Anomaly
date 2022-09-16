@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 
 public class MutatorHandler : MonoBehaviour
@@ -11,6 +12,9 @@ public class MutatorHandler : MonoBehaviour
     [SerializeField] List<Mutator> ActiveMutators;
     [SerializeField] List<Mutator> AvailableMutators;
 
+
+    [SerializeField] FirstPersonController Player;
+    [SerializeField] Camera PlayerCam;
     void Start()
     {
         foreach(Mutator m in AllMutators)
@@ -43,6 +47,22 @@ public class MutatorHandler : MonoBehaviour
             mutators.Add(m);           
         }
         return mutators;
+    }
+
+    private void MutatorStatChange(Mutator mutator)
+    {
+        switch (mutator.MutatorID)
+        {
+            case 0:
+                Player.AddSpeedBoost(mutator.EffectAmountPositive);
+                break;
+            case 1:
+                PlayerCam.fieldOfView = PlayerCam.fieldOfView - mutator.EffectAmountNegative;
+                break;
+            default:
+                // code block
+                break;
+        }
     }
 
     public List<Mutator> GetAllActiveMutators()
@@ -101,6 +121,7 @@ public class MutatorHandler : MonoBehaviour
     public void AddMutatorToActiveMutators(Mutator mutatorToAdd)
     {
         Debug.Log(mutatorToAdd + " de");
+
         if(mutatorToAdd == null)
         {
             return;
@@ -117,6 +138,8 @@ public class MutatorHandler : MonoBehaviour
         ActiveMutators.Add(mutatorToAdd);
         RemoveMutatorFromAvailableMutators(mutatorToAdd.MutatorID);
 
+        MutatorStatChange(mutatorToAdd);
+
     }
 
     public Mutator GetMutatorFromAvailableMutators(int index)
@@ -129,8 +152,23 @@ public class MutatorHandler : MonoBehaviour
         return mutator;
     }
     // Update is called once per frame
+    public bool CheckIfMutatorIsActive(int ID)
+    {
+        bool isActive = false;
+
+        foreach (Mutator m in ActiveMutators)
+        {
+            if(m.MutatorID == ID)
+            {
+                isActive = true;
+                break;
+            }
+        }
+
+        return isActive;
+    }
     void Update()
     {
-        
+        //Player.transform.rotation = Quaternion.Slerp(Player.transform.rotation, Quaternion.Euler(Player.transform.rotation.x, Player.transform.rotation.y, -180f), 1 * 2);
     }
 }

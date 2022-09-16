@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb0e4ab41403e1e45b26a2de324bbd56, type: 3}
-  m_Name: test
+  m_Name: InvertedControls
   m_EditorClassIdentifier: 
-  MutatorID: 0
-  Title: test1
-  Description: test 1 description
+  MutatorID: 2
+  Title: Inverted controls
+  Description: Movement controls are inverted
   EffectAmountPositive: 0
   EffectAmountNegative: 0
   TierLevel: 1
