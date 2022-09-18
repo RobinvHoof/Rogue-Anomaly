@@ -4671,9 +4671,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1894280222}
     m_Modifications:
     - target: {fileID: 139866980, guid: d7b42a0a3e2748944a1891b6323c2f61, type: 3}
+      propertyPath: TimeDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 139866980, guid: d7b42a0a3e2748944a1891b6323c2f61, type: 3}
       propertyPath: currentSpell
       value: 
-      objectReference: {fileID: 1294834399362254, guid: be55b4d9980cce5408596d0da606047e, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 139866980, guid: d7b42a0a3e2748944a1891b6323c2f61, type: 3}
+      propertyPath: ManaRegenPerTick
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6661286969899159113, guid: d7b42a0a3e2748944a1891b6323c2f61, type: 3}
       propertyPath: m_Name
       value: SpellSystem
