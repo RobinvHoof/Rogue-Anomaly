@@ -1,56 +1,41 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoManager : MonoBehaviour
 {
-    [SerializeField, Min(0)] int clipSize = 10;
-    [SerializeField, Min(0)] float reloadTime = 2f;
-    [SerializeField] bool autoReload = false;
+    [SerializeField] AmmoSlot[] ammoSlots;
 
-    int currentAmmo;
-    bool isReloading = false;
-
-    public int ClipSize => clipSize;
-    public int CurrentAmmo => currentAmmo;
-
-    void Start()
+    [System.Serializable]
+    class AmmoSlot
     {
-        currentAmmo = clipSize;
+        public AmmoType ammoType;
+        public int ammoAmount;
     }
 
-    public AmmoStatusResponse AmmoStatus()
+    public int GetCurrentAmmo(AmmoType ammoType)
     {
-        if (isReloading) return AmmoStatusResponse.Reloading;
-        if (currentAmmo <= 0) return AmmoStatusResponse.Empty;
-        return AmmoStatusResponse.Ready;
+        return GetAmmoSlot(ammoType).ammoAmount;
     }
 
-    public bool ReduceAmmo()
+    public void ReduceAmmo(AmmoType ammoType)
     {
-        AmmoStatusResponse status = AmmoStatus();
-        if (status == AmmoStatusResponse.Ready)
+        GetAmmoSlot(ammoType).ammoAmount--;
+    }
+
+    public void IncreaseAmmo(AmmoType ammoType, int amount)
+    {
+        GetAmmoSlot(ammoType).ammoAmount += amount;
+    }
+
+    AmmoSlot GetAmmoSlot(AmmoType ammoType)
+    {
+        foreach (AmmoSlot slot in ammoSlots)
         {
-            currentAmmo--;
-            if (currentAmmo == 0 && autoReload && reloadTime > 0)
+            if (slot.ammoType == ammoType)
             {
-                StartCoroutine(ReloadAmmoRoutine());
+                return slot;
             }
-            return true;
         }
-        return false;
-    }
-
-    public void ReloadAmmo()
-    {
-        StartCoroutine(ReloadAmmoRoutine());
-    }
-
-    IEnumerator ReloadAmmoRoutine()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(reloadTime);
-        currentAmmo = clipSize;
-        isReloading = false;
+        return null;
     }
 }

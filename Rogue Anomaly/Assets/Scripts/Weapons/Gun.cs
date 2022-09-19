@@ -6,8 +6,16 @@ public class Gun : Attack
 {
     [System.Serializable]
     public class GunSettings {
+        public AmmoType ammoType;
+
+        [Min(0)]
+        public int clipSize = 10;
+
         [Min(0)]
         public float rpm = 60;
+
+        [Min(0)]
+        public float reloadTime = 2;
 
         [Min(0)]
         public float range = 100;
@@ -30,24 +38,35 @@ public class Gun : Attack
     [SerializeField] GameObject hitEffect;
 
     AmmoManager ammoManager;
+    int ammoInClip;
+    bool isReloading = false;
 
     private void Start() {
-        ammoManager = GetComponent<AmmoManager>();
+        ammoManager = FindObjectOfType<AmmoManager>();
+        fillClip();
         StartCoroutine(CheckShoot());
+    }
+
+    private void OnEnable() {
+        if (ammoInClip > ammoManager.GetCurrentAmmo(gunSettings.ammoType))
+        {
+            ammoInClip = ammoManager.GetCurrentAmmo(gunSettings.ammoType);
+        }
     }
 
     private IEnumerator CheckShoot() 
     {        
         while(true)
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1") && !isReloading)
             {
-                if (ammoManager.AmmoStatus() == AmmoStatusResponse.Ready)
+                if (ammoInClip > 0)
                 {
                     for (int i = 0; i < gunSettings.palletsPerShot; i++)
                     {
-                        if (ammoManager.AmmoStatus() != AmmoStatusResponse.Ready) break;
-                        ammoManager.ReduceAmmo();
+                        if (ammoInClip <= 0) break;
+                        ammoInClip--;
+                        ammoManager.ReduceAmmo(gunSettings.ammoType);
                         
                         RaycastHit hit;
 
@@ -72,15 +91,25 @@ public class Gun : Attack
                     FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
                     yield return new WaitForSeconds(60 / gunSettings.rpm);
                 }
-                else if (ammoManager.AmmoStatus() == AmmoStatusResponse.Empty)
+                else if (ammoInClip <= 0 && ammoManager.GetCurrentAmmo(gunSettings.ammoType) > 0)
                 {
-                    Debug.Log("Bruh, your gun's empty. Reload it!");
-                    yield return new WaitForSeconds(60 / gunSettings.rpm);
-                    // TODO inform the player the gun is empty, or trigger an automatic reload
+                    StartCoroutine(ReloadGun());
                 }
             }
             yield return new WaitForEndOfFrame();
         }
     }
     
+    IEnumerator ReloadGun()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(gunSettings.reloadTime);
+        fillClip();
+        isReloading = false;
+    }
+
+    void fillClip()
+    {
+        ammoInClip = Mathf.Clamp(ammoManager.GetCurrentAmmo(gunSettings.ammoType), 0, gunSettings.clipSize);
+    }
 }
