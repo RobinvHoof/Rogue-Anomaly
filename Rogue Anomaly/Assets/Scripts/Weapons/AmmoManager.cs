@@ -5,13 +5,11 @@ using UnityEngine;
 public class AmmoManager : MonoBehaviour
 {
     [SerializeField, Min(0)] int clipSize = 10;
-    [SerializeField, Min(0)] float cooldownTime = 0.5f;
     [SerializeField, Min(0)] float reloadTime = 2f;
     [SerializeField] bool autoReload = false;
 
     int currentAmmo;
     bool isReloading = false;
-    bool isInCooldown = false;
 
     public int ClipSize => clipSize;
     public int CurrentAmmo => currentAmmo;
@@ -23,7 +21,6 @@ public class AmmoManager : MonoBehaviour
 
     public AmmoStatusResponse AmmoStatus()
     {
-        if (isInCooldown) return AmmoStatusResponse.Cooldown;
         if (isReloading) return AmmoStatusResponse.Reloading;
         if (currentAmmo <= 0) return AmmoStatusResponse.Empty;
         return AmmoStatusResponse.Ready;
@@ -38,9 +35,7 @@ public class AmmoManager : MonoBehaviour
             if (currentAmmo == 0 && autoReload && reloadTime > 0)
             {
                 StartCoroutine(ReloadAmmoRoutine());
-                return true;
             }
-            if (cooldownTime > 0) StartCoroutine(CooldownRoutine());
             return true;
         }
         return false;
@@ -57,12 +52,5 @@ public class AmmoManager : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = clipSize;
         isReloading = false;
-    }
-
-    IEnumerator CooldownRoutine()
-    {
-        isInCooldown = true;
-        yield return new WaitForSeconds(cooldownTime);
-        isInCooldown = false;
     }
 }
