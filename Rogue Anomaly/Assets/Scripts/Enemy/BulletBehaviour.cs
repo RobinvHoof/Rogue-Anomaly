@@ -10,7 +10,14 @@ public class BulletBehaviour : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Boom!");
+            
+        }
+
+        if(other.tag != "Enemy")
+        {
             Destroy(gameObject);
         }
+
+        
     }
 }
