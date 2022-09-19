@@ -68,8 +68,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-#Exclude all meta files
-*.meta
+
 # User setting files
 /[Pp]rojectSettings/[Pp]ackages/com.unity.probuilder/Settings.json
 
