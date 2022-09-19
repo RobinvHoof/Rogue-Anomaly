@@ -45,7 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5a9dec107d2f44f9415959e2d520e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpell: {fileID: 1249710063744722, guid: 71d777b916db3ef49b09b702a8c1087a, type: 3}
+  currentSpell: {fileID: 1294834399362254, guid: be55b4d9980cce5408596d0da606047e, type: 3}
+  TotalMana: 100
+  CurrentMana: 0
+  ManaRegenPerTick: 5
+  TimeDelay: 0.2
+  isRegenerating: 0
+  ManaRegenDelay: 5
 --- !u!1001 &4256245184915795403
 PrefabInstance:
   m_ObjectHideFlags: 0
