@@ -28,12 +28,13 @@ public class Gun : Attack
     [SerializeField] public Camera FPCamera;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
-    
+
+    AmmoManager ammoManager;
 
     private void Start() {
+        ammoManager = GetComponent<AmmoManager>();
         StartCoroutine(CheckShoot());
     }
-
 
     private IEnumerator CheckShoot() 
     {        
@@ -41,31 +42,42 @@ public class Gun : Attack
         {
             if (Input.GetButton("Fire1"))
             {
-                for (int i = 0; i < gunSettings.palletsPerShot; i++)
+                if (ammoManager.AmmoStatus() == AmmoStatusResponse.Ready)
                 {
-                    RaycastHit hit;
+                    for (int i = 0; i < gunSettings.palletsPerShot; i++)
+                    {
+                        if (ammoManager.AmmoStatus() != AmmoStatusResponse.Ready) break;
+                        ammoManager.ReduceAmmo();
+                        
+                        RaycastHit hit;
 
-                    Vector3 randomVector = 
-                        Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.up)) * (FPCamera.transform.forward).normalized +
-                        Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.right)) * (FPCamera.transform.forward).normalized;
+                        Vector3 randomVector = 
+                            Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.up)) * (FPCamera.transform.forward).normalized +
+                            Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.right)) * (FPCamera.transform.forward).normalized;
 
-                    if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
-                    {                    
-                        IHittable target = hit.collider.GetComponent<IHittable>();
-                        if (target != null) 
-                        {
-                            target.Hit(this, FPCamera.gameObject);
+                        if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
+                        {                    
+                            IHittable target = hit.collider.GetComponent<IHittable>();
+                            if (target != null) 
+                            {
+                                target.Hit(this, FPCamera.gameObject);
+                            }
+
+                            GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                            Destroy(impact, 0.2f);
                         }
-
-                        GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                        Destroy(impact, 0.2f);
                     }
+
+                    muzzleFlash.Play(); 
+                    FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
+                    yield return new WaitForSeconds(60 / gunSettings.rpm);
                 }
-                
-                muzzleFlash.Play(); 
-                FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
-                yield return new WaitForSeconds(60 / gunSettings.rpm);
-                
+                else if (ammoManager.AmmoStatus() == AmmoStatusResponse.Empty)
+                {
+                    Debug.Log("Bruh, your gun's empty. Reload it!");
+                    yield return new WaitForSeconds(60 / gunSettings.rpm);
+                    // TODO inform the player the gun is empty, or trigger an automatic reload
+                }
             }
             yield return new WaitForEndOfFrame();
         }
