@@ -17,23 +17,25 @@ public class AmmoManager : MonoBehaviour
         currentAmmo = clipSize;
     }
 
-    public bool CanFire()
+    public AmmoFireResponse CanFire()
     {
-        if (isInCooldown || isReloading) return false;
+        if (isInCooldown) return AmmoFireResponse.Cooldown;
+        if (isReloading) return AmmoFireResponse.Reloading;
 
         if (currentAmmo > 0)
         {
             currentAmmo--;
             if (cooldownTime > 0) StartCoroutine(CooldownRoutine());
-            return true;
+            return AmmoFireResponse.Success;
         }
         else if (currentAmmo <= 0)
         {
             if (reloadTime > 0) StartCoroutine(ReloadAmmoRoutine());
             else currentAmmo = clipSize;
+            return AmmoFireResponse.Reloading;
         }
         
-        return false;
+        return AmmoFireResponse.Undefined;
     }
 
     public void ReloadAmmo()
