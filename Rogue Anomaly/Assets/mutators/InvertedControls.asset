@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InvertedControls
   m_EditorClassIdentifier: 
   MutatorID: 2
-  Title: Inverted controls
+  Title: InvertedControls
   Description: Movement controls are inverted
   EffectAmountPositive: 0
   EffectAmountNegative: 0

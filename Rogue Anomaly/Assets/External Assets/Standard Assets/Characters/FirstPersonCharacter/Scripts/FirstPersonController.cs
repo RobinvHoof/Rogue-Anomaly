@@ -87,7 +87,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
-                if(!mutatorHandler.CheckIfMutatorIsActive(0))
+                if(!mutatorHandler.CheckIfMutatorIsActive("IncreaseMoveButNoJump"))
                 {
                     m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
                 }
@@ -124,7 +124,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = Vector3.zero;
-            if (mutatorHandler.CheckIfMutatorIsActive(2))
+            if (mutatorHandler.CheckIfMutatorIsActive("InvertedControls"))
             {
                 desiredMove = -transform.forward * m_Input.y + -transform.right * m_Input.x;
             }

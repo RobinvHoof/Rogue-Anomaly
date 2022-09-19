@@ -51,12 +51,12 @@ public class MutatorHandler : MonoBehaviour
 
     private void MutatorStatChange(Mutator mutator)
     {
-        switch (mutator.MutatorID)
+        switch (mutator.Title)
         {
-            case 0:
+            case "IncreaseMoveButNoJump":
                 Player.AddSpeedBoost(mutator.EffectAmountPositive);
                 break;
-            case 1:
+            case "FovDecrease":
                 PlayerCam.fieldOfView = PlayerCam.fieldOfView - mutator.EffectAmountNegative;
                 break;
             default:
@@ -152,13 +152,13 @@ public class MutatorHandler : MonoBehaviour
         return mutator;
     }
     // Update is called once per frame
-    public bool CheckIfMutatorIsActive(int ID)
+    public bool CheckIfMutatorIsActive(string title)
     {
         bool isActive = false;
 
         foreach (Mutator m in ActiveMutators)
         {
-            if(m.MutatorID == ID)
+            if(m.Title == title)
             {
                 isActive = true;
                 break;

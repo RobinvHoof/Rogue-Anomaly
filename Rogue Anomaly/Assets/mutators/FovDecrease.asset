@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FovDecrease
   m_EditorClassIdentifier: 
   MutatorID: 1
-  Title: Fov decrease
+  Title: FovDecrease
   Description: Decrease fov and increase gun range
   EffectAmountPositive: 10
   EffectAmountNegative: 20
