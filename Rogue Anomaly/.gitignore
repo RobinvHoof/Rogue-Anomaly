@@ -68,9 +68,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-<<<<<<< HEAD
-=======
-
 #Exclude all meta files
 *.meta
 # User setting files
