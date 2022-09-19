@@ -23,6 +23,6 @@ jobs:
           github_token: ${{ secrets.ACCESS_TOKEN }}
           source_branch: development
           target_branch: ${{ matrix.branch }}
-          title: Sync Pull Request
-          body: Development syncronization to all branches
+          title: Sync Pull Request | Development -> ${{ matrix.branch }}
+          body: Development syncronization to ${{ matrix.branch }}
           label: Automated
