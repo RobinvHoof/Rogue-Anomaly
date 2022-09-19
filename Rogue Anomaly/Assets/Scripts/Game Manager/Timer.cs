@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField, Range(0, 5), Tooltip("Change the multiplier at which time will pass. 1 is real time rate")] float timeMulitiplier = 1;
-    [SerializeField, Tooltip("All elements used for visualizing the gametimer")] public List<GameObject> frontendElements;
+    [SerializeField, Tooltip("Any GameObjects containing a class realizing the IActionEvent interface")] public List<GameObject> timedEvents;
+    [SerializeField, Tooltip("The cooldowns attached to the Timed Events. Match indexes")] public List<float> timedEventCooldowns;
 
     public float elapsedTime {get; private set;}
     public string elapsedTimeString {
@@ -40,13 +40,18 @@ public class Timer : MonoBehaviour
     private IEnumerator RunTimer()
     {
         while (true) {
-            foreach (GameObject timer in frontendElements)
+            for(int i = 0; i < timedEvents.Count; i++)
             {
-                TextMeshProUGUI text = timer.GetComponent<TextMeshProUGUI>();
-                if (text != null)
-                    text.SetText(elapsedTimeString);
-            }
+                IActionEvent _event = timedEvents[i].GetComponent<IActionEvent>();
+                if (_event == null)
+                    continue;
 
+                if (elapsedTime % timedEventCooldowns[i] == 0)
+                {
+                    _event.TriggerEvent(this.gameObject, "timerTick");
+                }
+            }
+            
             yield return new WaitForSeconds(1 / timeMulitiplier);
             elapsedTime++;
         }
