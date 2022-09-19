@@ -16,12 +16,13 @@ public class EnemyAI_Boss : MonoBehaviour
     [SerializeField] float navmeshStoppingDistanceMelee = 2f;
     [SerializeField] EnemyWeapon weapon;
     [SerializeField] bool canSeePlayer;
-
+    private Animator animator;
     void Start()
     {
         target = GameObject.Find("FPSController").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        weapon = GetComponent<EnemyWeapon>();
+        //weapon = GetComponent<EnemyWeapon>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -31,8 +32,9 @@ public class EnemyAI_Boss : MonoBehaviour
         
         Debug.DrawLine(transform.position, target.position, Color.red);
         RaycastHit hit;
-        if (Physics.Linecast(transform.position, target.position, out hit))
+        if (Physics.Linecast(weapon.transform.position, target.position, out hit))
         {
+            
             if(hit.collider.tag != "Player")
             {
                 canSeePlayer = false;
@@ -57,49 +59,63 @@ public class EnemyAI_Boss : MonoBehaviour
 
     private void ChaseTarget()
     {
+        navMeshAgent.isStopped = false;
+        animator.SetBool("attack", false);
         navMeshAgent.SetDestination(target.position);
     }
 
     private void EngageTarget()
     {
-        if (DistanceToTarget >= navMeshAgent.stoppingDistance && canSeePlayer)
+        
+        if (DistanceToTarget < meleeRange || !canSeePlayer)
         {
-            
-            if(DistanceToTarget > meleeRange && canSeePlayer)
+            weapon.enabled = false;
+            if (DistanceToTarget >= navmeshStoppingDistanceMelee)
             {
-                weapon.enabled = true;
-                navMeshAgent.stoppingDistance = navmeshStoppingDistanceRange;
+                ChaseTarget();              
             }
-            else
+
+            if (DistanceToTarget <= navmeshStoppingDistanceMelee)
             {
-                navMeshAgent.stoppingDistance = navmeshStoppingDistanceMelee;
-                weapon.enabled = false;
+                RotateToTarget();
+                MeleeAttackTarget();
                 
             }
-            ChaseTarget();
-            
         }
         else
         {
-            ChaseTarget();
-            navMeshAgent.stoppingDistance = navmeshStoppingDistanceMelee;
-        }
+            weapon.enabled = true;
+            if (DistanceToTarget >= navmeshStoppingDistanceRange)
+            {
+                ChaseTarget();                
+            }
 
-        if (DistanceToTarget <= navMeshAgent.stoppingDistance)
-        {
-            RotateToTarget();
-            MeleeAttackTarget();
-           
+            if (DistanceToTarget <= navmeshStoppingDistanceRange)
+            {
+                navMeshAgent.isStopped = true;
+                RotateToTarget();
+            }
+               
         }
+        
     }
 
     private void MeleeAttackTarget()
-    {
-        Debug.Log("attack");
+    {     
+        animator.SetBool("attack", true);       
     }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, meleeRange);
+
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, navmeshStoppingDistanceRange);
+    }
+
+    private void AttackHitEvent()
+    {
+        Debug.Log("attack");
     }
 }

@@ -9,8 +9,8 @@ public class BulletBehaviour : MonoBehaviour
         Debug.Log(other.name);
         if (other.tag == "Player")
         {
-            Debug.Log("Boom!");
-            
+            Debug.Log("Boom!");         
+
         }
 
         if(other.tag != "Enemy")
