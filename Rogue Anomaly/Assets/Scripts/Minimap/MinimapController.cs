@@ -8,10 +8,6 @@ public class MinimapController : MonoBehaviour
     [SerializeField] float cameraHeight = 100;
     [SerializeField] bool lockNorth = true;
 
-    void Start() {
-        
-    }
-
     void Update()
     {
         transform.position = new Vector3(trackTarget.position.x, cameraHeight, trackTarget.position.z);
