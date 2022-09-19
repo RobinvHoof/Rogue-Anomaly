@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         #branch: [mutator, Weapons, User-Interface, SpellSystem, Room-Layouts, PickupSystem, Minimap, Initial_Asset_Adding, Grid-System, CreateEnemy, Boss]
-        branch: [User-Interface]
+        branch: [Grid-System]
         
     runs-on: ubuntu-latest
     name: Syncing branches
@@ -25,3 +25,5 @@ jobs:
           source_branch: development
           target_branch: ${{ matrix.branch }}
           title: Sync Pull Request
+          body: Development syncronization to all branches
+          label: Automated
