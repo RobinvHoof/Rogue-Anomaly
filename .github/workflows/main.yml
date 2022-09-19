@@ -5,7 +5,6 @@ on:
 jobs:
   sync-branches:
     strategy:
-      max-parallel: 1
       matrix:
         branch: [mutator, Weapons, User-Interface, SpellSystem, Room-Layouts, PickupSystem, Minimap, Initial_Asset_Adding, Grid-System, CreateEnemy, Boss]
         
@@ -18,12 +17,22 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Open pull request
-        uses: devops-infra/action-pull-request@v0.5.0
+#      - name: Open pull request
+#        uses: devops-infra/action-pull-request@v0.5.0
+#        with:
+#          github_token: ${{ secrets.ACCESS_TOKEN }}
+#          source_branch: development
+#          target_branch: ${{ matrix.branch }}
+#          title: Sync Pull Request | Development -> ${{ matrix.branch }}
+#          body: Development syncronization to ${{ matrix.branch }}
+#          label: Automated
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
         with:
+          source_branch: "development"
+          destination_branch: ${{ matrix.branch }}
+          pr_title: "Pulling ${{ github.ref }} into master" 
+          pr_body: Development syncronization to ${{ matrix.branch }}              
+          pr_label: "Automated"                               
+          pr_allow_empty: false                              
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          source_branch: development
-          target_branch: ${{ matrix.branch }}
-          title: Sync Pull Request | Development -> ${{ matrix.branch }}
-          body: Development syncronization to ${{ matrix.branch }}
-          label: Automated
