@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "new Mutator", menuName = "Mutator")]
+[CreateAssetMenu(fileName = "New Mutator", menuName = "Mutator")]
 public class Mutator : ScriptableObject
 {
 

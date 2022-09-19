@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class MinimapController : MonoBehaviour
 {
-    [SerializeField] Transform trackTarget;
-    [SerializeField] float cameraHeight = 100;
-    [SerializeField] bool lockNorth = true;
+    [SerializeField] 
+    public Transform trackTarget;
+
+    [SerializeField] 
+    public float cameraHeight = 100;
+
+    [SerializeField] 
+    public bool lockNorth = true;
 
     void Update()
     {
