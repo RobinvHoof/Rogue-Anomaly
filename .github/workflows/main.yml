@@ -5,6 +5,7 @@ on:
 jobs:
   sync-branches:
     strategy:
+      max-parallel: 1
       matrix:
         branch: [mutator, Weapons, User-Interface, SpellSystem, Room-Layouts, PickupSystem, Minimap, Initial_Asset_Adding, Grid-System, CreateEnemy, Boss]
         
