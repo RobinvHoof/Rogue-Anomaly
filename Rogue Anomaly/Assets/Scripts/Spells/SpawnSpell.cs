@@ -9,7 +9,7 @@ public class SpawnSpell : MonoBehaviour
 
     [Header("Spell Data")]
     [SerializeField]
-    public GameObject currentSpell;
+    GameObject currentSpell;
 
     [Header("Mana Settings")]
     [SerializeField]

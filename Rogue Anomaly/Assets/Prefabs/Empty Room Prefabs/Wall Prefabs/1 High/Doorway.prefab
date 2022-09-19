@@ -330,98 +330,98 @@ MonoBehaviour:
   - m_Vertices: 21000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 4, z: 1}
+  - {x: 0, y: 4.99, z: 1}
   - {x: 0, y: 0, z: 1}
-  - {x: 1, y: 4, z: 1}
+  - {x: 1, y: 4.99, z: 1}
   - {x: 1, y: 0, z: 1}
   - {x: 4, y: 0, z: 1}
   - {x: 5, y: 0, z: 1}
-  - {x: 4, y: 4, z: 1}
-  - {x: 5, y: 4, z: 1}
-  - {x: 0, y: 4, z: 1}
-  - {x: 1, y: 4, z: 1}
+  - {x: 4, y: 4.99, z: 1}
+  - {x: 5, y: 4.99, z: 1}
+  - {x: 0, y: 4.99, z: 1}
+  - {x: 1, y: 4.99, z: 1}
   - {x: 0, y: 5, z: 1}
   - {x: 1, y: 5, z: 1}
   - {x: 4, y: 5, z: 1}
-  - {x: 4, y: 4, z: 1}
+  - {x: 4, y: 4.99, z: 1}
   - {x: 5, y: 5, z: 1}
-  - {x: 5, y: 4, z: 1}
-  - {x: 1, y: 4, z: 1}
-  - {x: 4, y: 4, z: 1}
+  - {x: 5, y: 4.99, z: 1}
+  - {x: 1, y: 4.99, z: 1}
+  - {x: 4, y: 4.99, z: 1}
   - {x: 1, y: 5, z: 1}
   - {x: 4, y: 5, z: 1}
-  - {x: 0, y: 4, z: 0}
-  - {x: 1, y: 4, z: 0}
+  - {x: 0, y: 4.99, z: 0}
+  - {x: 1, y: 4.99, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 1, y: 0, z: 0}
   - {x: 4, y: 0, z: 0}
-  - {x: 4, y: 4, z: 0}
+  - {x: 4, y: 4.99, z: 0}
   - {x: 5, y: 0, z: 0}
-  - {x: 5, y: 4, z: 0}
-  - {x: 0, y: 4, z: 0}
+  - {x: 5, y: 4.99, z: 0}
+  - {x: 0, y: 4.99, z: 0}
   - {x: 0, y: 5, z: 0}
-  - {x: 1, y: 4, z: 0}
+  - {x: 1, y: 4.99, z: 0}
   - {x: 1, y: 5, z: 0}
   - {x: 4, y: 5, z: 0}
   - {x: 5, y: 5, z: 0}
-  - {x: 4, y: 4, z: 0}
-  - {x: 5, y: 4, z: 0}
-  - {x: 1, y: 4, z: 0}
+  - {x: 4, y: 4.99, z: 0}
+  - {x: 5, y: 4.99, z: 0}
+  - {x: 1, y: 4.99, z: 0}
   - {x: 1, y: 5, z: 0}
-  - {x: 4, y: 4, z: 0}
+  - {x: 4, y: 4.99, z: 0}
   - {x: 4, y: 5, z: 0}
-  - {x: 4, y: 4, z: 1}
-  - {x: 1, y: 4, z: 1}
-  - {x: 4, y: 4, z: 0}
-  - {x: 1, y: 4, z: 0}
+  - {x: 4, y: 4.99, z: 1}
+  - {x: 1, y: 4.99, z: 1}
+  - {x: 4, y: 4.99, z: 0}
+  - {x: 1, y: 4.99, z: 0}
   - {x: 4, y: 0, z: 0}
   - {x: 4, y: 0, z: 1}
-  - {x: 4, y: 4, z: 0}
-  - {x: 4, y: 4, z: 1}
+  - {x: 4, y: 4.99, z: 0}
+  - {x: 4, y: 4.99, z: 1}
   - {x: 1, y: 0, z: 1}
   - {x: 1, y: 0, z: 0}
-  - {x: 1, y: 4, z: 1}
-  - {x: 1, y: 4, z: 0}
+  - {x: 1, y: 4.99, z: 1}
+  - {x: 1, y: 4.99, z: 0}
   m_Textures0:
-  - {x: 0, y: 4}
+  - {x: 0, y: 4.99}
   - {x: 0, y: 0}
-  - {x: -1, y: 4}
+  - {x: -1, y: 4.99}
   - {x: -1, y: 0}
   - {x: -4, y: 0}
   - {x: -5, y: 0}
-  - {x: -4, y: 4}
-  - {x: -5, y: 4}
-  - {x: 0, y: 4}
-  - {x: -1, y: 4}
+  - {x: -4, y: 4.99}
+  - {x: -5, y: 4.99}
+  - {x: 0, y: 4.99}
+  - {x: -1, y: 4.99}
   - {x: 0, y: 5}
   - {x: -1, y: 5}
   - {x: -4, y: 5}
-  - {x: -4, y: 4}
+  - {x: -4, y: 4.99}
   - {x: -5, y: 5}
-  - {x: -5, y: 4}
-  - {x: -1, y: 4}
-  - {x: -4, y: 4}
+  - {x: -5, y: 4.99}
+  - {x: -1, y: 4.99}
+  - {x: -4, y: 4.99}
   - {x: -1, y: 5}
   - {x: -4, y: 5}
-  - {x: 0, y: 4}
-  - {x: 1, y: 4}
+  - {x: 0, y: 4.99}
+  - {x: 1, y: 4.99}
   - {x: 0, y: 0}
   - {x: 1, y: 0}
   - {x: 4, y: 0}
-  - {x: 4, y: 4}
+  - {x: 4, y: 4.99}
   - {x: 5, y: 0}
-  - {x: 5, y: 4}
-  - {x: 0, y: 4}
+  - {x: 5, y: 4.99}
+  - {x: 0, y: 4.99}
   - {x: 0, y: 5}
-  - {x: 1, y: 4}
+  - {x: 1, y: 4.99}
   - {x: 1, y: 5}
   - {x: 4, y: 5}
   - {x: 5, y: 5}
-  - {x: 4, y: 4}
-  - {x: 5, y: 4}
-  - {x: 1, y: 4}
+  - {x: 4, y: 4.99}
+  - {x: 5, y: 4.99}
+  - {x: 1, y: 4.99}
   - {x: 1, y: 5}
-  - {x: 4, y: 4}
+  - {x: 4, y: 4.99}
   - {x: 4, y: 5}
   - {x: -4, y: 1}
   - {x: -1, y: 1}
@@ -429,12 +429,12 @@ MonoBehaviour:
   - {x: -1, y: 0}
   - {x: 0, y: 0}
   - {x: -1, y: 0}
-  - {x: 0, y: 4}
-  - {x: -1, y: 4}
+  - {x: 0, y: 4.99}
+  - {x: -1, y: 4.99}
   - {x: 1, y: 0}
   - {x: 0, y: 0}
-  - {x: 1, y: 4}
-  - {x: 0, y: 4}
+  - {x: 1, y: 4.99}
+  - {x: 0, y: 4.99}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3692
+  m_VersionIndex: 3627
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_PivotLocation: 1
   m_PivotPosition: {x: 0, y: 0, z: 0}
-  m_UnmodifiedMeshVersion: 3692
+  m_UnmodifiedMeshVersion: 3627
   m_ShapeBox:
     m_Center: {x: 2.5, y: 2.5, z: 0.5}
     m_Extent: {x: 2.5, y: 5, z: 0.5}
@@ -532,7 +532,7 @@ MonoBehaviour:
     - rid: 2466440249589104657
       type: {class: Door, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
       data:
-        m_DoorHeight: 1
+        m_DoorHeight: 0.01
         m_LegWidth: 1
 --- !u!23 &3825087088479932138
 MeshRenderer:
@@ -567,7 +567,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

@@ -11,36 +11,26 @@ public class MutatorHandler : MonoBehaviour
     [SerializeField] List<Mutator> AllMutators;
     [SerializeField] List<Mutator> ActiveMutators;
     [SerializeField] List<Mutator> AvailableMutators;
-    [SerializeField] int startupTime = 60;
-    [SerializeField] int mutatorInBetweenTime = 60;
+
 
     [SerializeField] FirstPersonController Player;
     [SerializeField] Camera PlayerCam;
     void Start()
     {
-        if(AllMutators.Count > 0)
+        foreach(Mutator m in AllMutators)
         {
-            foreach (Mutator m in AllMutators)
-            {
-                AvailableMutators.Add(m);
-            }
-
-            StartCoroutine(MutatorStartUpClock());
+            AvailableMutators.Add(m);
         }
         
-    }
-    IEnumerator MutatorStartUpClock()
-    {
-        yield return new WaitForSeconds(startupTime);
-
         StartCoroutine(MutatorClock());
     }
+
     IEnumerator MutatorClock()
     {
-            
+        Debug.Log("add one");     
         AddMutatorToActiveMutators(GetRandomMutator());
                
-        yield return new WaitForSecondsRealtime(mutatorInBetweenTime);
+        yield return new WaitForSecondsRealtime(10);
         if(AvailableMutators.Count > 0)
         {
             StartCoroutine(MutatorClock());
@@ -65,13 +55,9 @@ public class MutatorHandler : MonoBehaviour
         {
             case "IncreaseMoveButNoJump":
                 Player.AddSpeedBoost(mutator.EffectAmountPositive);
-                Player.ChangeJumpSpeed(0f);
                 break;
             case "FovDecrease":
                 PlayerCam.fieldOfView = PlayerCam.fieldOfView - mutator.EffectAmountNegative;
-                break;
-            case "InvertedControls":
-                Player.ActivateInvertedControls();
                 break;
             default:
                 // code block
@@ -100,7 +86,7 @@ public class MutatorHandler : MonoBehaviour
         }
 
 
-        
+        Debug.Log(randomNumber + " random number");
         return GetMutatorFromAvailableMutators(randomNumber);
     }
 
@@ -134,7 +120,8 @@ public class MutatorHandler : MonoBehaviour
 
     public void AddMutatorToActiveMutators(Mutator mutatorToAdd)
     {
-        
+        Debug.Log(mutatorToAdd + " de");
+
         if(mutatorToAdd == null)
         {
             return;
