@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField, Range(0, 5), Tooltip("Change the multiplier at which time will pass. 1 is real time rate")] float timeMulitiplier = 1;
-    [SerializeField, Tooltip("Any GameObjects containing a class realizing the IActionEvent interface")] public List<GameObject> timedEvents;
-    [SerializeField, Tooltip("The cooldowns attached to the Timed Events. Match indexes")] public List<float> timedEventCooldowns;
+    [SerializeField] 
+    [Range(0, 5)] 
+    [Tooltip("Change the multiplier at which time will pass. 1 is real time rate")] 
+    public float timeMulitiplier = 1;
 
+    [SerializeField]
+    [Tooltip("Any GameObjects containing a class realizing the IActionEvent interface")] 
+    public List<GameObject> timedEvents;
+
+    [SerializeField]
+    [Tooltip("The cooldowns attached to the Timed Events. Match indexes")] 
+    public List<float> timedEventCooldowns;
+
+    // Get amount of seconds passed on timer
     public float elapsedTime {get; private set;}
+
+    // Get time passed on timer in hh:mm:ss string format
     public string elapsedTimeString {
         get {
             System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(elapsedTime);
@@ -21,22 +33,26 @@ public class Timer : MonoBehaviour
         StartTimer();
     }
 
+    // Reset timer back to zero
     public void ResetTimer()
     {
         elapsedTime = 0;
     }
 
+    // Start the timer
     public void StartTimer() 
     {
         StopCoroutine(RunTimer());
         StartCoroutine(RunTimer());
     }
 
+    // Stop the timer
     public void StopTimer()
     {
         StopCoroutine(RunTimer());
     }
 
+    // Coroutine method
     private IEnumerator RunTimer()
     {
         while (true) {
