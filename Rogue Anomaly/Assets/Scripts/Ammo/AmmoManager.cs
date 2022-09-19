@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class AmmoManager : MonoBehaviour
     class AmmoSlot
     {
         public AmmoType ammoType;
-        public int ammoAmount;
+        [Min(0)] public int ammoAmount;
+        [Min(0)] public int maxAmmo;
     }
 
     public int GetCurrentAmmo(AmmoType ammoType)
@@ -22,9 +24,11 @@ public class AmmoManager : MonoBehaviour
         GetAmmoSlot(ammoType).ammoAmount--;
     }
 
-    public void IncreaseAmmo(AmmoType ammoType, int amount)
+    public void IncreaseAmmo(AmmoType ammoType, int percentage)
     {
-        GetAmmoSlot(ammoType).ammoAmount += amount;
+        AmmoSlot ammoSlot = GetAmmoSlot(ammoType);
+        int increase = Mathf.FloorToInt(((float)percentage / 100) * ammoSlot.maxAmmo);
+        ammoSlot.ammoAmount = Mathf.Clamp(ammoSlot.ammoAmount + increase, 0, ammoSlot.maxAmmo);
     }
 
     AmmoSlot GetAmmoSlot(AmmoType ammoType)

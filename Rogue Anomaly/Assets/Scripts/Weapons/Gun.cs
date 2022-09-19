@@ -48,7 +48,7 @@ public class Gun : Attack
     }
 
     private void OnEnable() {
-        if (ammoInClip > ammoManager.GetCurrentAmmo(gunSettings.ammoType))
+        if (ammoManager != null && ammoInClip > ammoManager.GetCurrentAmmo(gunSettings.ammoType))
         {
             ammoInClip = ammoManager.GetCurrentAmmo(gunSettings.ammoType);
         }
