@@ -1,7 +1,7 @@
 public enum AmmoFireResponse
 {
-    Success,
+    Ready,
     Cooldown,
     Reloading,
-    Undefined
+    Empty
 }
