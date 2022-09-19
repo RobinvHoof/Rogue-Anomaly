@@ -6,8 +6,7 @@ jobs:
   sync-branches:
     strategy:
       matrix:
-        #branch: [mutator, Weapons, User-Interface, SpellSystem, Room-Layouts, PickupSystem, Minimap, Initial_Asset_Adding, Grid-System, CreateEnemy, Boss]
-        branch: [Grid-System]
+        branch: [mutator, Weapons, User-Interface, SpellSystem, Room-Layouts, PickupSystem, Minimap, Initial_Asset_Adding, Grid-System, CreateEnemy, Boss]
         
     runs-on: ubuntu-latest
     name: Syncing branches
