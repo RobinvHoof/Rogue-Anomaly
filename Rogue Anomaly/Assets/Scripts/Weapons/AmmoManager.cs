@@ -21,18 +21,18 @@ public class AmmoManager : MonoBehaviour
         currentAmmo = clipSize;
     }
 
-    public AmmoFireResponse FireStatus()
+    public AmmoStatusResponse AmmoStatus()
     {
-        if (isInCooldown) return AmmoFireResponse.Cooldown;
-        if (isReloading) return AmmoFireResponse.Reloading;
-        if (currentAmmo <= 0) return AmmoFireResponse.Empty;
-        return AmmoFireResponse.Ready;
+        if (isInCooldown) return AmmoStatusResponse.Cooldown;
+        if (isReloading) return AmmoStatusResponse.Reloading;
+        if (currentAmmo <= 0) return AmmoStatusResponse.Empty;
+        return AmmoStatusResponse.Ready;
     }
 
-    public bool Fire()
+    public bool ReduceAmmo()
     {
-        AmmoFireResponse status = FireStatus();
-        if (status == AmmoFireResponse.Ready)
+        AmmoStatusResponse status = AmmoStatus();
+        if (status == AmmoStatusResponse.Ready)
         {
             currentAmmo--;
             if (currentAmmo == 0 && autoReload && reloadTime > 0)

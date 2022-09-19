@@ -1,4 +1,4 @@
-public enum AmmoFireResponse
+public enum AmmoStatusResponse
 {
     Ready,
     Cooldown,
