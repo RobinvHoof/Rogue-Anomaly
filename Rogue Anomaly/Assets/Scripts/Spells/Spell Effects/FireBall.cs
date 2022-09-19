@@ -6,7 +6,6 @@ public class FireBall : BaseSpellEffect
 {
     [SerializeField]
     float radius = 10;
-    
 
     public override void TriggerSpellEffect(Collider other)
     {
@@ -16,7 +15,7 @@ public class FireBall : BaseSpellEffect
         {
             if(entity.collider.gameObject.tag == "Enemy")
             {
-                Destroy(entity.collider.gameObject);
+                entity.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage((int)GetSpellDamage());
             }
         }
        
