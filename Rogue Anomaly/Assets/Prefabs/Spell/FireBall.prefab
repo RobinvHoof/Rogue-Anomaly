@@ -9673,19 +9673,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &5568237025288795864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294834399362254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8229af186a317154d922602ec64a33de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactParticle: {fileID: 1714524745656972, guid: 2e33bbd89680b744a8f2b0727a31b0ca, type: 3}
 --- !u!114 &-2652940280843424626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9698,6 +9685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798f5f9f9d4804f42a78e72eee7b7be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpellCost: 80
+  SpellDamage: 80
   radius: 20
 --- !u!199 &199541557569965598
 ParticleSystemRenderer:
