@@ -31,7 +31,7 @@ jobs:
         with:
           source_branch: "development"
           destination_branch: ${{ matrix.branch }}
-          pr_title: "Pulling ${{ github.ref }} into master" 
+          pr_title: "Sycning Branch to Development | Development -> ${{ matrix.branch }} " 
           pr_body: Development syncronization to ${{ matrix.branch }}              
           pr_label: "Automated"                               
           pr_allow_empty: false                              
