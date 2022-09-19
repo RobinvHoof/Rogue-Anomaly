@@ -28,6 +28,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private MutatorHandler mutatorHandler;
+
+        [SerializeField] private float WalkspeedBackup;
+        [SerializeField] private float RunSpeedBackup;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -43,6 +47,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        public bool debugg = true;
+
+        private bool MutatorNoMoreJump;
         // Use this for initialization
         private void Start()
         {
@@ -56,9 +63,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            WalkspeedBackup = m_WalkSpeed;
+            RunSpeedBackup = m_RunSpeed;
         }
 
+        public void AddSpeedBoost(float amount)
+        {
+            m_RunSpeed = m_RunSpeed + amount;
+            m_WalkSpeed = m_WalkSpeed + amount;
+        }
 
+        public void ResetSpeed()
+        {
+            m_RunSpeed = RunSpeedBackup;
+            m_WalkSpeed = WalkspeedBackup;
+        }
+
+       
         // Update is called once per frame
         private void Update()
         {
@@ -66,7 +87,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                if(!mutatorHandler.CheckIfMutatorIsActive("IncreaseMoveButNoJump"))
+                {
+                    m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                }
+                
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -98,7 +123,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            Vector3 desiredMove = Vector3.zero;
+            if (mutatorHandler.CheckIfMutatorIsActive("InvertedControls"))
+            {
+                desiredMove = -transform.forward * m_Input.y + -transform.right * m_Input.x;
+            }
+            else
+            {
+                desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
+            }
+            
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
