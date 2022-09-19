@@ -14,7 +14,7 @@ public class EnemyWeapon : MonoBehaviour
 
     [SerializeField]
     [Range(0, 2)]
-    float bulletSpeed;
+    float bulletSpeed = 1;
 
     Transform target;
 
