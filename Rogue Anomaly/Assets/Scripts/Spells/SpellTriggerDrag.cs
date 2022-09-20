@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class SpellTriggerDrag : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject impactParticle;
+
     public List<GameObject> TaggedEntities;
 
     public bool isMoving { get; private set; }
@@ -15,7 +14,6 @@ public class SpellTriggerDrag : MonoBehaviour
     {
         isMoving = true;
         TaggedEntities = new List<GameObject>();
-        Instantiate(impactParticle, transform);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,8 +22,9 @@ public class SpellTriggerDrag : MonoBehaviour
         {
             TaggedEntities.Add(other.gameObject);
         }
-        else if(other.tag == "Player") { };
+        else if(other.tag == "Player") { return; }
         this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
+
     }
 
     private void Update()
