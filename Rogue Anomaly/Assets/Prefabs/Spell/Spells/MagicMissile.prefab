@@ -19562,7 +19562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8229af186a317154d922602ec64a33de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactParticle: {fileID: 0}
+  impactParticle: {fileID: 1320316104850776, guid: 1977fc844cb969a44866c4dcd32996d1, type: 3}
 --- !u!114 &-641195566294424361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19575,6 +19575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40ad0a2ceff0564e9fa012421ccf430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpellIcon: {fileID: 2800000, guid: 97a75a3a754d79842a404a9f1cdcfa97, type: 3}
+  SpellCost: 10
+  SpellDamage: 10
 --- !u!1 &1466169144723874
 GameObject:
   m_ObjectHideFlags: 0
