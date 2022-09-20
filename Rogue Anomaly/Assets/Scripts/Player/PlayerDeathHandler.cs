@@ -3,9 +3,12 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerDeathHandler : MonoBehaviour
 {
-    [SerializeField] Canvas gameOverCanvas;
-    FirstPersonController playerController;
+    [SerializeField] 
+    public Canvas gameOverCanvas;
 
+
+    private FirstPersonController playerController;
+    
     private void Start() {
         gameOverCanvas.enabled = false;
         playerController = GetComponent<FirstPersonController>();

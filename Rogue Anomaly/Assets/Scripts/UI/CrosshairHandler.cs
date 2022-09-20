@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class CrosshairHandler : MonoBehaviour
 {
-    [SerializeField] Texture2D defaultCrosshair;
+    [SerializeField] 
+    public Texture2D defaultCrosshair;
     
+
     private RawImage crosshairCanvas;
 
     void Start()
@@ -14,7 +16,6 @@ public class CrosshairHandler : MonoBehaviour
         crosshairCanvas = GetComponent<RawImage>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //GameObject takeoverCrosshair = GetComponent<GunManager>().activeGun.crosshair;
