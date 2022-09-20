@@ -2,25 +2,13 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IAttackable
 {
-    [SerializeField] 
-    public int maxHealth = 100;
+    [SerializeField] int maxHealth = 100;
+    [SerializeField] float healthRegenerationRate = 1;
+    [SerializeField] float regenerationDelay = 1;
+    int hitPoints;
+    float regenBuffer;
+    float lastHitTime = -1;
 
-    [SerializeField] 
-    public float healthRegenerationRate = 1;
-
-    [SerializeField] 
-    public float regenerationDelay = 1;
-
-    public int currentHitPoints {   // New (Get property instead of method)
-        get {
-            return hitPoints;
-        }
-    }
-
-
-    private int hitPoints;
-    private float regenBuffer;
-    private float lastHitTime = -1;
     void Start()
     {
         hitPoints = maxHealth;
@@ -34,7 +22,6 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         }
     }
 
-    // Regenerate health if not taken damage in x amount of time
     void RegenerateHealth()
     {
         regenBuffer += healthRegenerationRate * Time.deltaTime;
@@ -43,7 +30,6 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         if (regenAmount > 0) RestoreHealth(regenAmount);
     }
 
-    // Take damage
     public void TakeDamage(int damageAmount)
     {
         hitPoints -= damageAmount;
@@ -56,7 +42,6 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         }
     }
 
-    // Heal x amount, capped at maxHealth
     public void RestoreHealth(int healthAmount)
     {
         hitPoints = Mathf.Clamp(hitPoints + healthAmount, 0, maxHealth);
@@ -68,11 +53,8 @@ public class PlayerHealth : MonoBehaviour, IAttackable
          }
     }
 
-    // Replaced by Get property "currentHitPoints"
-    /*
-    public int GetcurrentHitPoints() 
+    public int GetCurrentHitPoints()
     {
         return hitPoints;
     }
-    */
 }

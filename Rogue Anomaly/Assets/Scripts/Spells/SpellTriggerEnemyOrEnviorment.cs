@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpellTriggerEnviorment : MonoBehaviour
 {
     [SerializeField]
-    public GameObject impactParticle;
+    GameObject impactParticle;
 
     private void OnTriggerEnter(Collider other)
     {

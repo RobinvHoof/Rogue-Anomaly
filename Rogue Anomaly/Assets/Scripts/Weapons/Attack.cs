@@ -7,11 +7,9 @@ public abstract class Attack : MonoBehaviour
     [System.Serializable]
     public class AttackSettings 
     {
-        [Min(0)]
-        [Tooltip("Specify how mow damage each hit deals to a target")]
+        [Min(0), Tooltip("Specify how mow damage each hit deals to a target")]
         public float damage = 1;
     }
     
-    [SerializeField] 
-    public AttackSettings attackSettings;
+    [SerializeField] public AttackSettings attackSettings;
 }
