@@ -5,7 +5,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
     [SerializeField] int maxHealth = 100;
     [SerializeField] int hitPoints;
     bool isDead = false;
-    bool IsDead => isDead;
+    public bool IsDead => isDead;
 
     private void Start()
     {
