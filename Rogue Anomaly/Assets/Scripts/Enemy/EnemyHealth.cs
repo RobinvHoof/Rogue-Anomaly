@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IAttackable
 {
     [SerializeField] int maxHealth = 100;
-    int hitPoints;
+    [SerializeField] int hitPoints;
     bool isDead = false;
     bool IsDead => isDead;
 
