@@ -44,6 +44,7 @@ public class SpawnSpell : MonoBehaviour
                 obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
                 CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
                 lastSpellCast = Time.time;
+                Destroy(obj, 8f); //Acts as a failsafe
             }
         }
         CheckIfManaCanRegenerate();
