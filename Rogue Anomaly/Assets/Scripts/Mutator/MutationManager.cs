@@ -31,7 +31,6 @@ public class MutationManager : MonoBehaviour, IActionEvent
     //     Parameter[0] : Ingame time
     public void TriggerEvent(GameObject source, string eventName, params object[] parameters)
     {
-        Debug.Log(parameters[0].GetType());
         switch(eventName)
         {
             case "timerTick":
@@ -45,7 +44,7 @@ public class MutationManager : MonoBehaviour, IActionEvent
 
     public bool IsMutationActive(BaseMutation mutation)
     {
-        return (availableMutations.Find(x => x.Title == mutation.Title) != null);
+        return (activeMutations.Find(x => x.Title == mutation.Title) != null);
     }
 
     private void ActivateMutation(BaseMutation mutation)
