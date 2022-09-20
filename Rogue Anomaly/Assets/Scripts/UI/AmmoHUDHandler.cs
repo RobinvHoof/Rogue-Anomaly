@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class AmmoHandler : MonoBehaviour
+public class AmmoHUDHandler : MonoBehaviour
 {
     [SerializeField]
     public TextMeshProUGUI currentAmmoCounter;

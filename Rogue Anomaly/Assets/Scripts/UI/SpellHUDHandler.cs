@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpellHandler : MonoBehaviour
+public class SpellHUDHandler : MonoBehaviour
 {
     [SerializeField]
     public GameObject spellSystem;
