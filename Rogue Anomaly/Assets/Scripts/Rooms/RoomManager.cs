@@ -10,26 +10,26 @@ public class RoomManager : MonoBehaviour
 
     public void TriggerRoomEnter()
     {
-        CloseAllRoomDoors();
+        CloseAllDoors();
     }
 
     public void TriggerRoomCleared()
     {
-        OpenAllRoomDoors();
+        OpenAllDoors();
         Cleared = true;
     }
 
-    protected void OpenRoomDoor(int doorNum)
+    protected void OpenDoor(int doorNum)
     {
         doors[doorNum].GetComponent<Animator>().SetBool("opened", true);
     }
 
-    protected void CloseRoomDoor(int doorNum)
+    protected void CloseDoor(int doorNum)
     {
         doors[doorNum].GetComponent<Animator>().SetBool("opened", false);
     }
 
-    protected void OpenAllRoomDoors()
+    protected void OpenAllDoors()
     {
         foreach (GameObject door in doors)
         {
@@ -37,7 +37,7 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    protected void CloseAllRoomDoors()
+    protected void CloseAllDoors()
     {
         foreach (GameObject door in doors)
         {
