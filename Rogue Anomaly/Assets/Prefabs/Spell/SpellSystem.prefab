@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5a9dec107d2f44f9415959e2d520e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpell: {fileID: 1294834399362254, guid: be55b4d9980cce5408596d0da606047e, type: 3}
+  currentSpell: {fileID: 0}
   TotalMana: 100
   CurrentMana: 0
   ManaRegenPerTick: 5

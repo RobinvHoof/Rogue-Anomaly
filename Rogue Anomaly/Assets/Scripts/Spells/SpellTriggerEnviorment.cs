@@ -9,7 +9,8 @@ public class SpellTriggerEnviorment : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag != "Player")
+        Debug.Log("Hello!");
+        if (other.name != "Player")
         {
             this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
             GameObject obj = Instantiate(impactParticle, gameObject.transform.position, gameObject.transform.rotation); // Make sure this looks at the camera!
