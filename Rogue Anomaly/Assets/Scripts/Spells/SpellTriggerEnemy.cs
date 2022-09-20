@@ -5,13 +5,13 @@ using UnityEngine;
 public class SpellTriggerEnemy : MonoBehaviour
 {
     [SerializeField]
-    GameObject impactParticle;
+    public GameObject impactParticle;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag != "Player")
+        if (other.tag != "Player")
         {
-            if (other.tag == "Enemy")
+            if(other.tag == "Enemy")
             {
                 this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
             }
