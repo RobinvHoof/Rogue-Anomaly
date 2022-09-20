@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Rogue Anomaly/Assets/Scripts/Enemy/EnemyAI_Boss.cs.meta
+guid: 1300b8f32313831488c692c33b594e2a
+========
+guid: 0ed8ffe4370e61645883caba3e4e0a2b
+>>>>>>>> Development:Rogue Anomaly/Assets/Scripts/Enemy/EnemyAI.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
