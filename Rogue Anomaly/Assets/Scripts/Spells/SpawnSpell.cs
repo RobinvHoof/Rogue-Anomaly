@@ -45,10 +45,11 @@ public class SpawnSpell : MonoBehaviour
         {
             if(currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost() <= CurrentMana)
             {
-                GameObject obj = Instantiate(currentSpell, transform.position, transform.rotation);
+                GameObject obj = Instantiate(currentSpell,transform.position,transform.rotation,transform);
                 obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
                 CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
                 lastSpellCast = Time.time;
+                Destroy(obj, 8f); //Acts as a failsafe
             }
         }
         CheckIfManaCanRegenerate();
