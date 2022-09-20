@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimedRoomManager : RoomManager
@@ -14,6 +13,6 @@ public class TimedRoomManager : RoomManager
     IEnumerator TimedTrigger()
     {
         yield return new WaitForSeconds(timeToOpenDoors);
-        OpenAllRoomDoors();
+        TriggerRoomCleared();
     }
 }

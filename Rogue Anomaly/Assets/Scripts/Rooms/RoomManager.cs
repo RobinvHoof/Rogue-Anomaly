@@ -5,8 +5,20 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] GameObject[] doors;
+    [SerializeField] Collider enterRoomCollider;
 
-    public bool Cleared { get; set; } = false;
+    public bool Cleared { get; private set; } = false;
+
+    public void TriggerRoomEnter()
+    {
+        CloseAllRoomDoors();
+    }
+
+    public void TriggerRoomCleared()
+    {
+        OpenAllRoomDoors();
+        Cleared = true;
+    }
 
     protected void OpenRoomDoor(int doorNum)
     {

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EnemyRoomManager : RoomManager
 {
-    [SerializeField] int enemies = 0;
+    [SerializeField, Min(1)] int enemies = 1;
 
     void Update()
     {
-        if (enemies <= 0) OpenAllRoomDoors();
+        if (enemies <= 0)
+        {
+            TriggerRoomCleared();
+        }
     }
 }
