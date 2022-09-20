@@ -27,7 +27,13 @@ public class Gun : Attack
         public float palletSpread = 0;
 
         [Range(0, 45)]
-        public float recoil = 0;        
+        public float recoil = 0;
+
+        [Min(0)]
+        public float damageModifier = 1;
+
+        [Min(0)]
+        public float attackspeedModifier = 1;
 
         public LayerMask penetrateLayers;
     }
@@ -83,10 +89,10 @@ public class Gun : Attack
 
                         if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
                         {                    
-                            IHittable target = hit.collider.GetComponent<IHittable>();
+                            IAttackable target = hit.collider.GetComponent<IAttackable>();
                             if (target != null) 
                             {
-                                target.Hit(this, FPCamera.gameObject);
+                                target.TakeDamage((int)(attackSettings.damage * gunSettings.damageModifier));
                             }
 
                             GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
@@ -96,7 +102,7 @@ public class Gun : Attack
 
                     muzzleFlash.Play(); 
                     FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
-                    yield return new WaitForSeconds(60 / gunSettings.rpm);
+                    yield return new WaitForSeconds(60 / (gunSettings.rpm * gunSettings.attackspeedModifier));
                 }
                 else if (ammoInClip <= 0 && ammoManager.GetCurrentAmmo(gunSettings.ammoType) > 0)
                 {
