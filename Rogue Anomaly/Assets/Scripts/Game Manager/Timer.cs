@@ -64,7 +64,7 @@ public class Timer : MonoBehaviour
 
                 if (elapsedTime % timedEventCooldowns[i] == 0)
                 {
-                    _event.TriggerEvent(this.gameObject, "timerTick");
+                    _event.TriggerEvent(this.gameObject, "timerTick", elapsedTime);
                 }
             }
             

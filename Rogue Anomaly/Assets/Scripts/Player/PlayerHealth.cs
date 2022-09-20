@@ -54,6 +54,8 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         {
             GetComponent<PlayerDeathHandler>().HandleDeath();
         }
+
+        Debug.Log(hitPoints);
     }
 
     // Heal x amount, capped at maxHealth
