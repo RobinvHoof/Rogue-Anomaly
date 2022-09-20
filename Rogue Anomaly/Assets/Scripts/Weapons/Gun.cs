@@ -53,9 +53,13 @@ public class Gun : Attack
     private AmmoManager ammoManager;
     public int ammoInClip {get; private set;}
     public bool isReloading {get; private set;} = false;
+    
+    private FragileVampirismMutation fragileVampirismMutation;
 
     private void Start() {
         ammoManager = FindObjectOfType<AmmoManager>();
+        fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
+
         fillClip();
         StartCoroutine(CheckShoot());
     }
@@ -87,13 +91,16 @@ public class Gun : Attack
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.up)) * (FPCamera.transform.forward).normalized +
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.right)) * (FPCamera.transform.forward).normalized;
 
+                        // Trigger Fragile Vampirism mutation
+                        fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
+
                         if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
                         {                    
                             IAttackable target = hit.collider.GetComponent<IAttackable>();
                             if (target != null) 
                             {
                                 target.TakeDamage((int)(attackSettings.damage * gunSettings.damageModifier));
-                            }
+                            }                            
 
                             GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
                             Destroy(impact, 0.2f);

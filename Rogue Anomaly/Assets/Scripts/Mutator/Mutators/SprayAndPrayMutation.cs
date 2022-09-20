@@ -12,49 +12,33 @@ public class SprayAndPrayMutation : BaseMutation
     public override void TriggerEvent(GameObject source, string eventName, params object[] parameters)
     {
         switch(eventName)
-        {
-            case "mutationTick":            
-                GetActiveGun().gunSettings.attackspeedModifier = 2f;
-                GetActiveGun().gunSettings.damageModifier = 0.75f;
-
-                foreach (Gun gun in GetInactiveGuns())
+        {   
+            case "startMutation":
+                foreach(Gun gun in GetAllGuns())
                 {
-                    gun.gunSettings.attackspeedModifier = 1;
-                    gun.gunSettings.damageModifier = 1;
+                    gun.gunSettings.attackspeedModifier += 1f;
+                    gun.gunSettings.damageModifier -= 0.25f;
                 }
                 break;
 
             case "stopMutation":
-                GetActiveGun().gunSettings.attackspeedModifier = 1;
-                GetActiveGun().gunSettings.damageModifier = 1;
-                break;
+                foreach(Gun gun in GetAllGuns())
+                {
+                    gun.gunSettings.attackspeedModifier -= 1f;
+                    gun.gunSettings.damageModifier += 0.25f;
+                }                
+                break;                
         }
     }
 
-    private Gun GetActiveGun()
-    {
-        List<GameObject> gunList = new List<GameObject>();
-        foreach(Transform child in weaponGroup.transform)
-            gunList.Add(child.gameObject);
-
-        GameObject activeGun = gunList.Find(x => x.activeSelf);
-
-        if (activeGun == null)
-            return null;
-
-        return activeGun.GetComponent<Gun>();
-    }
-
-    private List<Gun> GetInactiveGuns()
+    private List<Gun> GetAllGuns()
     {
         List<GameObject> gunGameObjectList = new List<GameObject>();
         foreach(Transform child in weaponGroup.transform)
             gunGameObjectList.Add(child.gameObject);
-        
-        List<GameObject> inactiveGuns = gunGameObjectList.FindAll(x => x.activeSelf == false);
 
         List<Gun> gunList = new();
-        foreach(GameObject gun in inactiveGuns)
+        foreach(GameObject gun in gunGameObjectList)
         {
             gunList.Add(gun.GetComponent<Gun>());
         }
