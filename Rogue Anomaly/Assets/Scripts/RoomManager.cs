@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] GameObject door;
+    [SerializeField] GameObject[] doors;
+    [SerializeField, Min(0)] int enemies;
 
     void Start()
     {
@@ -13,11 +14,21 @@ public class RoomManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (enemies <= 0) OpenRoomDoor(0);
     }
 
-    void OpenRoomDoor()
+    void OpenRoomDoor(int roomNum)
     {
-        door.GetComponent<Animator>().SetBool("opened", true);
+        doors[roomNum].GetComponent<Animator>().SetBool("opened", true);
+    }
+
+    void CloseRoomDoor(int roomNum)
+    {
+        doors[roomNum].GetComponent<Animator>().SetBool("opened", false);
+    }
+
+    public void RemoveEnemyFromRoom()
+    {
+        enemies--;
     }
 }
