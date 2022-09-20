@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MutationHudHandler : MonoBehaviour
 {
     [SerializeField]
-    public MutatorHandler mutatorHandler;
+    public MutationManager mutationManager;
 
     [SerializeField]
     public RawImage lastMutationBorder;
@@ -22,7 +22,7 @@ public class MutationHudHandler : MonoBehaviour
 
     void Update()
     {
-        if (mutatorHandler.ActiveMutators.Count == 0)
+        if (mutationManager.activeMutations.Count == 0)
         {
             lastMutationBorder.enabled = false;
             textRenderer.enabled = false;
@@ -31,7 +31,7 @@ public class MutationHudHandler : MonoBehaviour
         lastMutationBorder.enabled = true;
         textRenderer.enabled = true;
 
-        Mutator lastMutator = mutatorHandler.ActiveMutators[mutatorHandler.ActiveMutators.Count - 1];
-        textRenderer.SetText(lastMutator.Title);
+        BaseMutation lastMutation = mutationManager.activeMutations[mutationManager.activeMutations.Count - 1];
+        textRenderer.SetText(lastMutation.Title);
     }
 }
