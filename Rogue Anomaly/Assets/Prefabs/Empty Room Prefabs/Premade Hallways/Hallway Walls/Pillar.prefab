@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3321425415494331369
+--- !u!1 &5994864316623212877
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8952398421186938834}
-  - component: {fileID: 5223479896562048143}
-  - component: {fileID: 8873751394021822017}
-  - component: {fileID: 1562688482467586875}
-  - component: {fileID: 6975454307535564450}
-  - component: {fileID: 6386984789114931719}
+  - component: {fileID: 2519644034951569401}
+  - component: {fileID: 3207561268536688798}
+  - component: {fileID: 2886970187749937531}
+  - component: {fileID: 3825480666833226473}
+  - component: {fileID: 6711639861994089395}
+  - component: {fileID: 694734637082775015}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8952398421186938834
+--- !u!4 &2519644034951569401
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321425415494331369}
+  m_GameObject: {fileID: 5994864316623212877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3627473345547298901}
+  m_Father: {fileID: 365130603042079513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5223479896562048143
+--- !u!114 &3207561268536688798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321425415494331369}
+  m_GameObject: {fileID: 5994864316623212877}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
@@ -163,55 +163,55 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: -1, y: 0, z: 5}
-  - {x: 0, y: 0, z: 5}
-  - {x: -1, y: 5, z: 5}
-  - {x: 0, y: 5, z: 5}
-  - {x: 0, y: 0, z: 5}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 5, z: 5}
-  - {x: 0, y: 5, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: 0, y: 5, z: 0}
-  - {x: -1, y: 5, z: 0}
-  - {x: -1, y: 0, z: 0}
-  - {x: -1, y: 0, z: 5}
-  - {x: -1, y: 5, z: 0}
-  - {x: -1, y: 5, z: 5}
-  - {x: -1, y: 5, z: 5}
-  - {x: 0, y: 5, z: 5}
-  - {x: -1, y: 5, z: 0}
-  - {x: 0, y: 5, z: 0}
   - {x: -1, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: -1, y: 0, z: 5}
-  - {x: 0, y: 0, z: 5}
+  - {x: -1, y: 4, z: 0}
+  - {x: 0, y: 4, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: -1}
+  - {x: 0, y: 4, z: 0}
+  - {x: 0, y: 4, z: -1}
+  - {x: 0, y: 0, z: -1}
+  - {x: -1, y: 0, z: -1}
+  - {x: 0, y: 4, z: -1}
+  - {x: -1, y: 4, z: -1}
+  - {x: -1, y: 0, z: -1}
+  - {x: -1, y: 0, z: 0}
+  - {x: -1, y: 4, z: -1}
+  - {x: -1, y: 4, z: 0}
+  - {x: -1, y: 4, z: 0}
+  - {x: 0, y: 4, z: 0}
+  - {x: -1, y: 4, z: -1}
+  - {x: 0, y: 4, z: -1}
+  - {x: -1, y: 0, z: -1}
+  - {x: 0, y: 0, z: -1}
+  - {x: -1, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Textures0:
   - {x: 1, y: 0}
   - {x: 0, y: 0}
-  - {x: 1, y: 5}
-  - {x: 0, y: 5}
-  - {x: 5, y: 0}
-  - {x: 0, y: 0}
-  - {x: 5, y: 5}
-  - {x: 0, y: 5}
+  - {x: 1, y: 4}
+  - {x: 0, y: 4}
   - {x: 0, y: 0}
   - {x: -1, y: 0}
-  - {x: 0, y: 5}
-  - {x: -1, y: 5}
+  - {x: 0, y: 4}
+  - {x: -1, y: 4}
   - {x: 0, y: 0}
-  - {x: -5, y: 0}
-  - {x: 0, y: 5}
-  - {x: -5, y: 5}
-  - {x: -1, y: 5}
-  - {x: 0, y: 5}
   - {x: -1, y: 0}
-  - {x: 0, y: 0}
+  - {x: 0, y: 4}
+  - {x: -1, y: 4}
   - {x: 1, y: 0}
   - {x: 0, y: 0}
-  - {x: 1, y: 5}
-  - {x: 0, y: 5}
+  - {x: 1, y: 4}
+  - {x: 0, y: 4}
+  - {x: -1, y: 0}
+  - {x: 0, y: 0}
+  - {x: -1, y: -1}
+  - {x: 0, y: -1}
+  - {x: 1, y: -1}
+  - {x: 0, y: -1}
+  - {x: 1, y: 0}
+  - {x: 0, y: 0}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -248,45 +248,45 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2011
+  m_VersionIndex: 907
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!114 &8873751394021822017
+--- !u!114 &2886970187749937531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321425415494331369}
+  m_GameObject: {fileID: 5994864316623212877}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ca002da428252441b92f28d83c8a65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Shape:
-    rid: 2466440249589104650
-  m_Size: {x: -1, y: 5, z: 5}
+    rid: 2466440336933388295
+  m_Size: {x: -1, y: 4, z: -1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_PivotLocation: 1
   m_PivotPosition: {x: 0, y: 0, z: 0}
-  m_UnmodifiedMeshVersion: 2011
+  m_UnmodifiedMeshVersion: 907
   m_ShapeBox:
-    m_Center: {x: -0.5, y: 2.5, z: 2.5}
-    m_Extent: {x: 0.5, y: 2.5, z: 2.5}
+    m_Center: {x: -0.5, y: 2, z: -0.5}
+    m_Extent: {x: 0.5, y: 2, z: 0.5}
   references:
     version: 2
     RefIds:
-    - rid: 2466440249589104650
+    - rid: 2466440336933388295
       type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
---- !u!23 &1562688482467586875
+--- !u!23 &3825480666833226473
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321425415494331369}
+  m_GameObject: {fileID: 5994864316623212877}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -322,21 +322,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &6975454307535564450
+--- !u!33 &6711639861994089395
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321425415494331369}
+  m_GameObject: {fileID: 5994864316623212877}
   m_Mesh: {fileID: 0}
---- !u!64 &6386984789114931719
+--- !u!64 &694734637082775015
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321425415494331369}
+  m_GameObject: {fileID: 5994864316623212877}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -344,7 +344,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &5581505143799444151
+--- !u!1 &8731881199954484378
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,27 +352,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3627473345547298901}
-  m_Layer: 0
-  m_Name: Wall
+  - component: {fileID: 365130603042079513}
+  m_Layer: 7
+  m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3627473345547298901
+--- !u!4 &365130603042079513
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5581505143799444151}
+  m_GameObject: {fileID: 8731881199954484378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8952398421186938834}
+  - {fileID: 2519644034951569401}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
