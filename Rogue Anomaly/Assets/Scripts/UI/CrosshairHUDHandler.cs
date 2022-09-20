@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CrosshairHandler : MonoBehaviour
+public class CrosshairHUDHandler : MonoBehaviour
 {
     [SerializeField] 
     public Texture2D defaultCrosshair;
