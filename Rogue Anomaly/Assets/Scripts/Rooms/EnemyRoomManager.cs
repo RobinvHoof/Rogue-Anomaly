@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class EnemyRoomManager : RoomManager
 {
-    [SerializeField, Min(1)] int enemies = 1;
+    [SerializeField] List<EnemyHealth> enemies;
 
-    void Update()
+    float sweepTime = 1;
+
+    void OnTriggerEnter(Collider other)
     {
-        if (enemies <= 0)
+        if (other.gameObject.tag == "Player")
         {
-            TriggerRoomCleared();
+            TriggerRoomEnter();
+            StartCoroutine(CheckEnemies());
+        }
+    }
+
+    IEnumerator CheckEnemies()
+    {
+        while (!Cleared)
+        {
+            if (enemies.Find(x => x.IsDead == false) == null) TriggerRoomCleared();
+            yield return new WaitForSeconds(sweepTime);
         }
     }
 }
