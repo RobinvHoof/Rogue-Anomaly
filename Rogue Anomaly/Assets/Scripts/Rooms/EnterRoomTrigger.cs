@@ -7,5 +7,6 @@ public class EnterRoomTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         parentRoom.TriggerRoomEnter();
+        gameObject.SetActive(false);
     }
 }

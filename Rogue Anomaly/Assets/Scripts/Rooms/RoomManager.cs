@@ -5,7 +5,6 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] GameObject[] doors;
-    [SerializeField] Collider enterRoomCollider;
 
     public bool Cleared { get; private set; } = false;
 
