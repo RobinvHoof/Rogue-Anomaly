@@ -72,6 +72,7 @@ public class EnemyAI_Boss : MonoBehaviour
             weapon.enabled = false;
             if (DistanceToTarget >= navmeshStoppingDistanceMelee)
             {
+                animator.SetTrigger("walk");
                 ChaseTarget();              
             }
 
@@ -87,6 +88,7 @@ public class EnemyAI_Boss : MonoBehaviour
             weapon.enabled = true;
             if (DistanceToTarget >= navmeshStoppingDistanceRange)
             {
+                //animator.SetTrigger("walk");
                 ChaseTarget();                
             }
 
@@ -94,6 +96,7 @@ public class EnemyAI_Boss : MonoBehaviour
             {
                 navMeshAgent.isStopped = true;
                 RotateToTarget();
+                animator.SetTrigger("idle");
             }
                
         }
