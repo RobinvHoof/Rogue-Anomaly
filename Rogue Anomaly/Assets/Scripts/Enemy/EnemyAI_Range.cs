@@ -6,17 +6,16 @@ using UnityEngine.AI;
 
 public class EnemyAI_Range : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    public const float turningSpeed = 2;
 
-    Transform target;
 
-    const float turningSpeed = 2;
-
-    NavMeshAgent navMeshAgent;
+    private Transform target;
+    private NavMeshAgent navMeshAgent;
 
     void Start()
     {
-        target = GameObject.Find("FPSController").transform;
+        target = GameObject.Find("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -26,6 +25,7 @@ public class EnemyAI_Range : MonoBehaviour
         RotateToTarget();
     }
 
+    // Rotate the unit to face the target
     private void RotateToTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;

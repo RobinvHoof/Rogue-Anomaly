@@ -4996,6 +4996,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3b08bc1a9537c40bd7f36f22093939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpellIcon: {fileID: 2800000, guid: dbf362703cd993545bbfe2c8e3d759bc, type: 3}
+  SpellCost: 10
+  SpellDamage: 10
 --- !u!54 &2558165108058627885
 Rigidbody:
   m_ObjectHideFlags: 0
