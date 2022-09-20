@@ -30,7 +30,7 @@ public class EnemyAI : MonoBehaviour
 
     private void EngageTarget(){
         if (distanceToTarget >= navMeshAgent.stoppingDistance){
-            Debug.Log("Engaged");
+            //Debug.Log("Engaged");
             ChaseTarget();
         }
 
@@ -48,7 +48,7 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackTarget(){
         GetComponent<Animator>().SetBool("attack", true);
-        Debug.Log(name + " has hit " + target.name);
+        //Debug.Log(name + " has hit " + target.name);
     }
 
     void OnDrawGizmosSelected(){

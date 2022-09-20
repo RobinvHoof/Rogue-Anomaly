@@ -31,8 +31,9 @@ public class PlayerHealth : MonoBehaviour, IAttackable
     }
 
     public void TakeDamage(int damageAmount)
-    {
+    {   
         hitPoints -= damageAmount;
+        Debug.Log("Current health is " + hitPoints);
         lastHitTime = Time.time;
         regenBuffer = 0;
 
