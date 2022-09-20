@@ -6,34 +6,39 @@ public class SpawnSpell : MonoBehaviour
 {
     // Start is called before the first frame update
     
-
+    [SerializeField]
     [Header("Spell Data")]
-    [SerializeField]
-    GameObject currentSpell;
+    public GameObject currentSpell;
 
+    [SerializeField]
     [Header("Mana Settings")]
+    public float TotalMana = 100f;
+
     [SerializeField]
-    float TotalMana = 100f;
-    [SerializeField]
-    float CurrentMana = 0f;
+    public float CurrentMana = 0f;
+
     [SerializeField]
     [Range(0,100)]
-    float ManaRegenPerTick = 5f;
+    public float ManaRegenPerTick = 5f;
+
     [SerializeField]
     [Range(0f,1f)]
-    float TimeDelay = 0.2f;
+    public float TimeDelay = 0.2f;
+
     [SerializeField]
-    bool isRegenerating = false;
-    float lastSpellCast = 0;
+    public bool isRegenerating = false;
+
     [SerializeField]
-    int ManaRegenDelay = 5;
+    public int ManaRegenDelay = 5;
+
+
+    private float lastSpellCast = 0;
 
     private void Start()
     {
         CurrentMana = TotalMana;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -49,7 +54,7 @@ public class SpawnSpell : MonoBehaviour
         CheckIfManaCanRegenerate();
     }
 
-
+    // Check if mana can be regenerated
     void CheckIfManaCanRegenerate()
     {
         if(lastSpellCast + ManaRegenDelay <= Time.time && !isRegenerating && CurrentMana < TotalMana)
@@ -58,6 +63,7 @@ public class SpawnSpell : MonoBehaviour
         }
     }
 
+    // Regenerate mana over time
     IEnumerator RegenerateMana()
     {
         isRegenerating = true;
