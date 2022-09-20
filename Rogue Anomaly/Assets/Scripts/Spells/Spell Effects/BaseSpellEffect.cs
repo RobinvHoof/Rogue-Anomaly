@@ -7,7 +7,7 @@ public abstract class BaseSpellEffect : MonoBehaviour
 {
     [Header("Spell Icon")]
     [SerializeField]
-    Texture2D SpellIcon;
+    public Texture2D SpellIcon;
 
     [Header("Spell Properties")]
     [SerializeField]
