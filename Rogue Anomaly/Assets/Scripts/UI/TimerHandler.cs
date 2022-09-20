@@ -5,6 +5,7 @@ using TMPro;
 
 public class TimerHandler : MonoBehaviour, IActionEvent
 {
+    // Check passed time and tick time forward on HUD element
     public void TriggerEvent(GameObject source, string eventName, params object[] parameters)
     {
         switch(eventName)

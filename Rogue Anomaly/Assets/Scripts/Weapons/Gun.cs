@@ -32,14 +32,21 @@ public class Gun : Attack
         public LayerMask penetrateLayers;
     }
 
-    [SerializeField] public GunSettings gunSettings;
-    [SerializeField] public Camera FPCamera;
-    [SerializeField] ParticleSystem muzzleFlash;
-    [SerializeField] GameObject hitEffect;
+    [SerializeField] 
+    public GunSettings gunSettings;
 
-    AmmoManager ammoManager;
-    int ammoInClip;
-    bool isReloading = false;
+    [SerializeField] 
+    public Camera FPCamera;
+
+    [SerializeField] 
+    public ParticleSystem muzzleFlash;
+
+    [SerializeField] 
+    public GameObject hitEffect;
+
+    private AmmoManager ammoManager;
+    public int ammoInClip {get; private set;}
+    public bool isReloading {get; private set;} = false;
 
     private void Start() {
         ammoManager = FindObjectOfType<AmmoManager>();
