@@ -26,12 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502390784434487028}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: -3.076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6258039026163343044}
+  - {fileID: 7818808856113922933}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,7 +103,10 @@ MonoBehaviour:
   attackSettings:
     damage: 10
   gunSettings:
+    ammoType: 0
+    clipSize: 100
     rpm: 120
+    reloadTime: 1
     range: 100
     palletsPerShot: 1
     palletSpread: 0
@@ -112,9 +115,9 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 0
   FPCamera: {fileID: 0}
-  muzzleFlash: {fileID: 6258039026163343067}
+  muzzleFlash: {fileID: 7818808856113922922}
   hitEffect: {fileID: 1288723713895748270, guid: a9ad505d4db48c7488901cb02eaf3692, type: 3}
---- !u!1001 &1379645989879302080
+--- !u!1001 &2989691804802767473
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -127,15 +130,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5043039692949494020, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.126
+      value: 0.056
       objectReference: {fileID: 0}
     - target: {fileID: 5043039692949494020, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.028
+      value: 0.037
       objectReference: {fileID: 0}
     - target: {fileID: 5043039692949494020, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.291
+      value: -0.395
       objectReference: {fileID: 0}
     - target: {fileID: 5043039692949494020, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -171,13 +174,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
---- !u!4 &6258039026163343044 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5043039692949494020, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
-  m_PrefabInstance: {fileID: 1379645989879302080}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &6258039026163343067 stripped
+--- !u!198 &7818808856113922922 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5043039692949494043, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
-  m_PrefabInstance: {fileID: 1379645989879302080}
+  m_PrefabInstance: {fileID: 2989691804802767473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7818808856113922933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5043039692949494020, guid: b8b3252aa26a306499b9d740d2ea955f, type: 3}
+  m_PrefabInstance: {fileID: 2989691804802767473}
   m_PrefabAsset: {fileID: 0}

@@ -6,16 +6,16 @@ public class Gun : Attack
 {
     [System.Serializable]
     public class GunSettings {
-        public AmmoType ammoType;
+        public AmmoType ammoType;//
 
-        [Min(0)]
-        public int clipSize = 10;
+        [Min(0)]//
+        public int clipSize = 10;//
 
         [Min(0)]
         public float rpm = 60;
 
-        [Min(0)]
-        public float reloadTime = 2;
+        [Min(0)]//
+        public float reloadTime = 2;//
 
         [Min(0)]
         public float range = 100;
@@ -44,20 +44,20 @@ public class Gun : Attack
     [SerializeField] 
     public GameObject hitEffect;
 
-    private AmmoManager ammoManager;
-    public int ammoInClip {get; private set;}
-    public bool isReloading {get; private set;} = false;
+    private AmmoManager ammoManager;//
+    public int ammoInClip {get; private set;}//
+    public bool isReloading {get; private set;} = false;//
 
     private void Start() {
-        ammoManager = FindObjectOfType<AmmoManager>();
-        fillClip();
+        ammoManager = FindObjectOfType<AmmoManager>();//
+        fillClip();//
         StartCoroutine(CheckShoot());
     }
 
-    private void OnEnable() {
-        if (ammoManager != null && ammoInClip > ammoManager.GetCurrentAmmo(gunSettings.ammoType))
+    private void OnEnable() {//
+        if (ammoManager != null && ammoInClip > ammoManager.GetCurrentAmmo(gunSettings.ammoType))//
         {
-            ammoInClip = ammoManager.GetCurrentAmmo(gunSettings.ammoType);
+            ammoInClip = ammoManager.GetCurrentAmmo(gunSettings.ammoType);//
         }
     }
 
@@ -65,15 +65,15 @@ public class Gun : Attack
     {        
         while(true)
         {
-            if (Input.GetButton("Fire1") && !isReloading)
+             if (Input.GetButton("Fire1") && !isReloading/**/)
             {
-                if (ammoInClip > 0)
-                {
+                if (ammoInClip > 0)//
+                {//
                     for (int i = 0; i < gunSettings.palletsPerShot; i++)
                     {
-                        if (ammoInClip <= 0) break;
-                        ammoInClip--;
-                        ammoManager.ReduceAmmo(gunSettings.ammoType);
+                        if (ammoInClip <= 0) break;//
+                        ammoInClip--;//
+                        ammoManager.ReduceAmmo(gunSettings.ammoType);//
                         
                         RaycastHit hit;
 
@@ -97,26 +97,26 @@ public class Gun : Attack
                     muzzleFlash.Play(); 
                     FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
                     yield return new WaitForSeconds(60 / gunSettings.rpm);
-                }
-                else if (ammoInClip <= 0 && ammoManager.GetCurrentAmmo(gunSettings.ammoType) > 0)
-                {
-                    StartCoroutine(ReloadGun());
-                }
+                }//
+                else if (ammoInClip <= 0 && ammoManager.GetCurrentAmmo(gunSettings.ammoType) > 0)//
+                {//
+                    StartCoroutine(ReloadGun());//
+                }//
             }
             yield return new WaitForEndOfFrame();
         }
     }
     
-    IEnumerator ReloadGun()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(gunSettings.reloadTime);
-        fillClip();
-        isReloading = false;
-    }
+    IEnumerator ReloadGun()//
+    {//
+        isReloading = true;//
+        yield return new WaitForSeconds(gunSettings.reloadTime);//
+        fillClip();//
+        isReloading = false;//
+    }//
 
-    void fillClip()
-    {
-        ammoInClip = Mathf.Clamp(ammoManager.GetCurrentAmmo(gunSettings.ammoType), 0, gunSettings.clipSize);
-    }
+    void fillClip()//
+    {//
+        ammoInClip = Mathf.Clamp(ammoManager.GetCurrentAmmo(gunSettings.ammoType), 0, gunSettings.clipSize);//
+    }//
 }

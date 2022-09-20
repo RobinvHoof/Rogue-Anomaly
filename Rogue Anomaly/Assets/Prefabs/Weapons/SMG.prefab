@@ -26,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974764858569248959}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.491241, y: 0.61, z: 0.694479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -104,7 +104,10 @@ MonoBehaviour:
   attackSettings:
     damage: 20
   gunSettings:
+    ammoType: 0
+    clipSize: 10
     rpm: 1200
+    reloadTime: 2
     range: 40
     palletsPerShot: 1
     palletSpread: 0
