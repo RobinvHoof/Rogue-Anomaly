@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Rogue Anomaly/Assets/Prefabs/Enemy/Boss/_defaultMat (Instance).mat.meta
 guid: 8cbd0cb45141f0649aab1d6a333363db
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
+========
+guid: 8171354518fec224eb173014a9cfd849
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>>> Development:Rogue Anomaly/Assets/Animations/Ammo/AmmoPickup.anim.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
