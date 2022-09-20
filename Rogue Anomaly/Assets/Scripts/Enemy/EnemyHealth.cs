@@ -22,6 +22,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         }
     }
 
+    // Kill unit
     private void Die()
     {
         if (isDead) return;
