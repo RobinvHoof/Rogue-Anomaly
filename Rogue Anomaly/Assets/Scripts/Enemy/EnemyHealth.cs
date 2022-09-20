@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IAttackable
 {
-    [SerializeField] 
-    public float maxHealth = 100;
-
-
-    private float hitPoints;
-    private bool isDead = false;
-    private bool IsDead => isDead;
+    [SerializeField] int maxHealth = 100;
+    [SerializeField] int hitPoints;
+    bool isDead = false;
+    bool IsDead => isDead;
 
     private void Start()
     {
