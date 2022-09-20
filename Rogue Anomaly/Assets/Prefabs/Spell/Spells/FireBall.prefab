@@ -5003,7 +5003,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9685,7 +9685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellCost: 80
-  SpellDamage: 120
+  SpellDamage: 60
   radius: 20
 --- !u!199 &199541557569965598
 ParticleSystemRenderer:
