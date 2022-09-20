@@ -26,7 +26,7 @@ public abstract class BaseMutation : MonoBehaviour, IActionEvent
     //
     // Furthermore, custom events names can be made depending on the situation and triggered from anywhere in the project.
     /* Example code:
-        public void TriggerEvent(GameObject source, string eventName, params object[] parameters)
+        public override void TriggerEvent(GameObject source, string eventName, params object[] parameters)
         {
             switch(eventName)
             {
