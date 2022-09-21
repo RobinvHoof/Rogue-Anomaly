@@ -2,25 +2,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IAttackable
 {
-    [SerializeField] int maxHealth = 100;
-    [SerializeField] int hitPoints;
+    [SerializeField] public int maxHealth = 100;
+    int hitPoints;
     bool isDead = false;
-    public bool IsDead => isDead;
-
-    private FragileVampirismMutation fragileVampirismMutation;
+    bool IsDead => isDead;
 
     private void Start()
     {
         hitPoints = maxHealth;
-        fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
     }
 
     public void TakeDamage(int damageAmount)
     {
+        BroadcastMessage("OnDamageTaken");
         hitPoints -= damageAmount;
-
-        // Trigger Fragile Vampirism Mutation
-        fragileVampirismMutation.TriggerEvent(this.gameObject, "hitShot");
 
         if (hitPoints <= 0)
         {
@@ -28,7 +23,6 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         }
     }
 
-    // Kill unit
     private void Die()
     {
         if (isDead) return;
