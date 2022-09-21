@@ -5,13 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Sandbox/Tony Sandbox.unity
-    guid: a1613ea2e119bdd4998deb4bda88f774
-  - enabled: 1
-    path: Assets/Scenes/Sandbox/Play Sceen.unity
-    guid: aa0178377de74b3449e716f745ed3836
+    guid: 6d0e161464ac706419a33ea296792486
   m_configObjects: {}
