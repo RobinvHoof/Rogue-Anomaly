@@ -34,6 +34,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         IsDead = true;
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        GetComponent<Collider>().enabled = false;
     
         // Trigger death animition when present
         if (GetComponent<Animator>() != null) GetComponent<Animator>().SetTrigger("die");
