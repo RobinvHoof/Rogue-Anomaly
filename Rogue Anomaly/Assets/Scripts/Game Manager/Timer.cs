@@ -50,6 +50,7 @@ public class Timer : MonoBehaviour
     // Stop the timer
     public void StopTimer()
     {
+        Debug.Log("Timer stopped");
         StopCoroutine(RunTimer());
     }
 

@@ -8,17 +8,21 @@ public class PlayerDeathHandler : MonoBehaviour
 
 
     private FirstPersonController playerController;
+    private Timer timerHandler;
     
     private void Start() {
         gameOverCanvas.enabled = false;
-        playerController = GetComponent<FirstPersonController>();
+
+        playerController = FindObjectOfType<FirstPersonController>();
+        timerHandler = FindObjectOfType<Timer>();
     }
 
     public void HandleDeath()
     {
         playerController.enabled = false;
+        timerHandler.StopTimer();
+
         gameOverCanvas.enabled = true;
-        Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

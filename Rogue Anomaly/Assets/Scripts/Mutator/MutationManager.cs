@@ -6,7 +6,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class MutationManager : MonoBehaviour, IActionEvent
 {
-    
+    [SerializeField]
+    public AudioSource audioSource;
+
+    [SerializeField]
+    public AudioClip newMutationSound;
     
     
     public List<BaseMutation> availableMutations;
@@ -37,6 +41,8 @@ public class MutationManager : MonoBehaviour, IActionEvent
                 if (availableMutations.Count > 0 && (System.Convert.ToInt32(parameters[0]) != 0))
                 {
                     ActivateMutation(GetRandomMutation());
+                
+                    audioSource.PlayOneShot(newMutationSound);
                 }
                 break;
         }
