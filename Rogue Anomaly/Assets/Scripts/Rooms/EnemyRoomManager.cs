@@ -13,7 +13,16 @@ public class EnemyRoomManager : RoomManager
         if (other.gameObject.tag == "Player")
         {
             TriggerRoomEnter();
+            WakeEnemies();
             StartCoroutine(CheckEnemies());
+        }
+    }
+
+    void WakeEnemies()
+    {
+        foreach (EnemyHealth enemy in enemies)
+        {
+            enemy.gameObject.SetActive(true);
         }
     }
 

@@ -7,16 +7,19 @@ public class RoomManager : MonoBehaviour
     [SerializeField] GameObject[] doors;
 
     public bool Cleared { get; private set; } = false;
+    public bool Active { get; private set; } = false;
 
     public void TriggerRoomEnter()
     {
+        Active = true;
         CloseAllDoors();
     }
 
     public void TriggerRoomCleared()
     {
-        OpenAllDoors();
         Cleared = true;
+        Active = false;
+        OpenAllDoors();
     }
 
     protected void OpenDoor(int doorNum)
