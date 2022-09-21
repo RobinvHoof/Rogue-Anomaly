@@ -308,6 +308,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spell HUD Element
       objectReference: {fileID: 0}
+    - target: {fileID: 4939387039331693709, guid: 5e73138734f4e564cbe0b099030a32f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939387039331693709, guid: 5e73138734f4e564cbe0b099030a32f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e73138734f4e564cbe0b099030a32f5, type: 3}
 --- !u!224 &713232010157288586 stripped
