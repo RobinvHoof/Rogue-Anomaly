@@ -43,6 +43,7 @@ public class SpawnSpell : MonoBehaviour
 
     void Update()
     {
+        if (currentSpell == null) { return; }
         if(Input.GetMouseButtonDown(0))
         {
             if(currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost() <= CurrentMana)
