@@ -121,5 +121,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser Rifle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7570423088514248849, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
