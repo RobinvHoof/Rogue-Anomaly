@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
 
     public void TakeDamage(int damageAmount)
     {
-        BroadcastMessage("OnDamageTaken");
+        //BroadcastMessage("OnDamageTaken");
         hitPoints -= damageAmount;
 
         // Trigger Fragile Vampirism Mutation
