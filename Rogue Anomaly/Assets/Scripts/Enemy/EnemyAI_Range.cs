@@ -8,6 +8,7 @@ public class EnemyAI_Range : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    [SerializeField]
     Transform target;
 
     const float turningSpeed = 2;
@@ -16,7 +17,6 @@ public class EnemyAI_Range : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.Find("FPSController").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
