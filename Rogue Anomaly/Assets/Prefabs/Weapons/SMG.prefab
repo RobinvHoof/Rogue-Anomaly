@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3558692806466897312}
   - component: {fileID: 1623533412149260650}
   - component: {fileID: 2458659112823845179}
+  - component: {fileID: 193368236}
   m_Layer: 0
   m_Name: SMG
   m_TagString: Untagged
@@ -104,10 +105,7 @@ MonoBehaviour:
   attackSettings:
     damage: 20
   gunSettings:
-    ammoType: 0
-    clipSize: 10
     rpm: 1200
-    reloadTime: 2
     range: 40
     palletsPerShot: 1
     palletSpread: 0
@@ -119,6 +117,26 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4051696488829052671}
   laser: {fileID: 1546205289321282084}
   hitEffect: {fileID: 1288723713895748270, guid: a9ad505d4db48c7488901cb02eaf3692, type: 3}
+--- !u!95 &193368236
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974764858569248959}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d31c570182bb4ed44b95cfbe17ad5294, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6282104172236940593
 PrefabInstance:
   m_ObjectHideFlags: 0

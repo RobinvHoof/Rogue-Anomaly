@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpell: {fileID: 0}
+  SpellFireDelay: 1
   TotalMana: 100
   CurrentMana: 0
   ManaRegenPerTick: 5
