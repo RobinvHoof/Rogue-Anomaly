@@ -50,7 +50,7 @@ public class SpawnSpell : MonoBehaviour
     void Update()
     {
         if (currentSpell == null) { return; }
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
             if(currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost() <= CurrentMana && isCasting == false)
             {
@@ -71,7 +71,7 @@ public class SpawnSpell : MonoBehaviour
         isCasting = true;
         GameObject obj = Instantiate(currentSpell, transform.position, transform.rotation);
         obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
-        fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
+        //fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
         CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
         lastSpellCastTime = Time.time;
         yield return new WaitForSeconds(SpellFireDelay);

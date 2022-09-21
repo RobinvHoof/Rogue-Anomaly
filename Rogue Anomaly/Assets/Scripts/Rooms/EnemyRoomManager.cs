@@ -10,11 +10,12 @@ public class EnemyRoomManager : RoomManager
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !Cleared && !Active)
+        if (other.gameObject.tag == "Player")
         {
             TriggerRoomEnter();
             WakeEnemies();
             StartCoroutine(CheckEnemies());
+            GetComponent<Collider>().enabled = false;
         }
     }
 

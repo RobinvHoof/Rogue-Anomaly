@@ -16,10 +16,14 @@ public class EnemyWeapon : MonoBehaviour
     [Range(0, 2)]
     float bulletSpeed = 1;
 
-    [SerializeField]
     Transform target;
 
     bool readyToShoot = true;
+
+    private void Start()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
 
     private void Update()
     {
@@ -34,7 +38,7 @@ public class EnemyWeapon : MonoBehaviour
         readyToShoot = false;
         GameObject instance = Instantiate(bulletPrefab,transform.position,transform.rotation);
         instance.GetComponent<Rigidbody>().AddForce((target.position - transform.position).normalized * bulletSpeed, ForceMode.Impulse);
-        Destroy(instance, 3f);
+        Destroy(instance, 8f);
         yield return new WaitForSeconds(fireDelay);
         readyToShoot = true;
     }
