@@ -102,7 +102,7 @@ public class Gun : Attack
                         if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
                         {                    
                             IAttackable target = hit.collider.GetComponent<IAttackable>();
-                            if (target != null) 
+                            if (target != null && target as PlayerHealth == null)
                             {
                                 target.TakeDamage((int)(attackSettings.damage * gunSettings.damageModifier));
                             }                            
