@@ -16,10 +16,14 @@ public class EnemyWeapon : MonoBehaviour
     [Range(0, 2)]
     float bulletSpeed = 1;
 
-    [SerializeField]
     Transform target;
 
     bool readyToShoot = true;
+
+    private void Start()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
 
     private void Update()
     {
