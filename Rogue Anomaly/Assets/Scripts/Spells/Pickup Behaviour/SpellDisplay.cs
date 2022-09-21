@@ -33,11 +33,12 @@ public class SpellDisplay : MonoBehaviour
 
     private void ChooseSpell()
     {
-        SpellToGive = Spells[random.Next(Spells.Count + 1)];
+        SpellToGive = Spells[random.Next(Spells.Count)];
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hello!");
         if (other.tag == "Player")
         {
             other.GetComponentInChildren<SpawnSpell>().currentSpell = SpellToGive;
