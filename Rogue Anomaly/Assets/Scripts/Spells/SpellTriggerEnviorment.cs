@@ -9,7 +9,6 @@ public class SpellTriggerEnviorment : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hello!");
         if (other.name != "Player")
         {
             this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);

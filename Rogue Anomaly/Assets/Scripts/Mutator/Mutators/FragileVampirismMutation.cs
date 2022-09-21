@@ -18,7 +18,10 @@ public class FragileVampirismMutation : BaseMutation
     [Min(0)]
     public int damageOnMiss = 1;
 
+    
+    
     public FragileVampirismMutation() : base("Fragile Vampirism", "Nom! Give me that health! You steal some of your enemies life on a hit shot, but take a small amount of damage on a missed shot") {}
+
 
     public override void TriggerEvent(GameObject source, string eventName, params object[] parameters)
     {

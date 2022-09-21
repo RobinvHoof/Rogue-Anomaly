@@ -8,6 +8,8 @@ public abstract class BaseMutation : MonoBehaviour, IActionEvent
     public string Title {get; private set;}
     public string Description {get; private set;}
 
+
+
     // To supply the BaseMutation with the data needed (Title and Description), make an empty constructor in your Mutation that passes the required information on to the BaseMutation;
     /* Example Code:
         public TestMutation() : base("Test Mutation", "This mutation is just a test to explain the concept!") {}
@@ -17,6 +19,7 @@ public abstract class BaseMutation : MonoBehaviour, IActionEvent
         Title = title;
         Description = description;
     }
+
 
     // This method is the main method to do any actions using Mutations.
     // The MutationManager has three default event names built in that are fired in three different situations:

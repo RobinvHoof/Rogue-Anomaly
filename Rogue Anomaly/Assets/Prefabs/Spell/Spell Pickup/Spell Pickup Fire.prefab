@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &173361967623190455
+--- !u!1001 &7078298112398196586
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,40 +8,80 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2704286744503153577, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
-      propertyPath: TimeDelay
-      value: 1
+      propertyPath: SpellToGive
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2704286744503153577, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
-      propertyPath: DisplayParticle
+      propertyPath: Spells.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704286744503153577, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: Spells.Array.data[0]
       value: 
-      objectReference: {fileID: 1797740254408388, guid: 426476765574136428576210e388ebed, type: 3}
+      objectReference: {fileID: 1481587283673810, guid: 5c28077d8e373814282a1476e78c04f1, type: 3}
+    - target: {fileID: 2704286744503153577, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: Spells.Array.data[1]
+      value: 
+      objectReference: {fileID: 1294834399362254, guid: be55b4d9980cce5408596d0da606047e, type: 3}
+    - target: {fileID: 2704286744503153577, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: Spells.Array.data[2]
+      value: 
+      objectReference: {fileID: 1249710063744722, guid: 71d777b916db3ef49b09b702a8c1087a, type: 3}
+    - target: {fileID: 2704286744503153577, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: Spells.Array.data[3]
+      value: 
+      objectReference: {fileID: 1012013889074000, guid: 02b8bb8c23989c74e8e0b980ad6cfcc7, type: 3}
+    - target: {fileID: 2704286744503153577, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: Spells.Array.data[4]
+      value: 
+      objectReference: {fileID: 1300573103503756, guid: dc159ac1228b45a4796a79c8403a36c2, type: 3}
+    - target: {fileID: 5132732595014736762, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5d070559c0ae6f4aa2b6106ca5faf9d, type: 2}
+    - target: {fileID: 5339283643038284669, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7259546142847186579, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
       propertyPath: m_Name
       value: Spell Pickup Fire
       objectReference: {fileID: 0}
-    - target: {fileID: 7818086226969229695, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_text
+      value: PLACEHOLDER
       objectReference: {fileID: 0}
-    - target: {fileID: 7818086226969229695, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.35
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_fontSize
+      value: 4.55
       objectReference: {fileID: 0}
-    - target: {fileID: 7818086226969229695, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_margin.w
+      value: 3.7181017
       objectReference: {fileID: 0}
-    - target: {fileID: 7818086226969229695, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
-      propertyPath: m_LocalPosition.y
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_margin.x
+      value: 0.5052242
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_margin.y
+      value: -0.85454607
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_margin.z
+      value: 0.44171858
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827377504048227044, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8453085717418946170, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453085717418946170, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8453085717418946170, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
       propertyPath: m_LocalPosition.x
