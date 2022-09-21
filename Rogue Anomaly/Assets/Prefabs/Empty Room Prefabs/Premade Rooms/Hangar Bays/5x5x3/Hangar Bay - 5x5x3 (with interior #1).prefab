@@ -4936,6 +4936,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 45d37e9fa73a04c489021571f851466f, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: -8896051167825165466, guid: 41d66b8c384d5be49baf6c09f5d36bce, type: 3}
     - target: {fileID: 919132149155446097, guid: 45d37e9fa73a04c489021571f851466f, type: 3}
       propertyPath: m_Name
       value: pipe_rampSmall
@@ -5938,6 +5942,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 880b127f4661856418bf7007a617bf28, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: -8896051167825165466, guid: 41d66b8c384d5be49baf6c09f5d36bce, type: 3}
     - target: {fileID: 919132149155446097, guid: 880b127f4661856418bf7007a617bf28, type: 3}
       propertyPath: m_Name
       value: pipe_straight
@@ -11879,6 +11887,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f15f0f849a6ec704db105be526623ca4, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: -8896051167825165466, guid: 41d66b8c384d5be49baf6c09f5d36bce, type: 3}
     - target: {fileID: 919132149155446097, guid: f15f0f849a6ec704db105be526623ca4, type: 3}
       propertyPath: m_Name
       value: pipe_rampLarge
@@ -14689,6 +14701,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 45d37e9fa73a04c489021571f851466f, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: -8896051167825165466, guid: 41d66b8c384d5be49baf6c09f5d36bce, type: 3}
     - target: {fileID: 919132149155446097, guid: 45d37e9fa73a04c489021571f851466f, type: 3}
       propertyPath: m_Name
       value: pipe_rampSmall
