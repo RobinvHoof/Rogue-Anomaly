@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8310883627186443094, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8453085717418946170, guid: eb099ef18b0652f4d8bbe14b8ed52093, type: 3}
       propertyPath: m_RootOrder
       value: 0

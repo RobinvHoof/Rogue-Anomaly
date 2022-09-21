@@ -163,4 +163,4 @@ MonoBehaviour:
   fireDelay: 0.5
   bulletPrefab: {fileID: 1343504842343394, guid: bb31114f4c681a94f81fcb3da810dd14, type: 3}
   bulletSpeed: 1
-  target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  target: {fileID: 0}
