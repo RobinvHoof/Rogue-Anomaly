@@ -106,20 +106,24 @@ MonoBehaviour:
     damage: 60
   gunSettings:
     ammoType: 0
-    clipSize: 10
+    clipSize: 20
     rpm: 120
-    reloadTime: 2
+    reloadTime: 1.5
     range: 80
     palletsPerShot: 1
     palletSpread: 0
     recoil: 1
+    damageModifier: 1
+    attackspeedModifier: 1
     penetrateLayers:
       serializedVersion: 2
       m_Bits: 0
   FPCamera: {fileID: 0}
   muzzleFlash: {fileID: 3093073470340108222}
-  laser: {fileID: 7883602229645557238}
   hitEffect: {fileID: 1288723713895748270, guid: a9ad505d4db48c7488901cb02eaf3692, type: 3}
+  gunEffectSound: {fileID: 0}
+  gunReloadEffect: {fileID: 0}
+  laser: {fileID: 7883602229645557238}
 --- !u!1001 &3401224339402367715
 PrefabInstance:
   m_ObjectHideFlags: 0

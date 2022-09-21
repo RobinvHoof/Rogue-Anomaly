@@ -22,21 +22,12 @@ public class RoomManager : MonoBehaviour
         OpenAllDoors();
     }
 
-    protected void OpenDoor(int doorNum)
-    {
-        doors[doorNum].GetComponent<Animator>().SetBool("opened", true);
-    }
-
-    protected void CloseDoor(int doorNum)
-    {
-        doors[doorNum].GetComponent<Animator>().SetBool("opened", false);
-    }
-
     protected void OpenAllDoors()
     {
         foreach (GameObject door in doors)
         {
             door.GetComponent<Animator>().SetBool("opened", true);
+            door.GetComponent<AudioSource>().PlayDelayed(0.6f);
         }
     }
 
@@ -45,6 +36,19 @@ public class RoomManager : MonoBehaviour
         foreach (GameObject door in doors)
         {
             door.GetComponent<Animator>().SetBool("opened", false);
+            door.GetComponent<AudioSource>().PlayDelayed(1f);
         }
     }
+
+    // Unused methods, for now...
+    //
+    // protected void OpenDoor(int doorNum)
+    // {
+    //     doors[doorNum].GetComponent<Animator>().SetBool("opened", true);
+    // }
+
+    // protected void CloseDoor(int doorNum)
+    // {
+    //     doors[doorNum].GetComponent<Animator>().SetBool("opened", false);
+    // }
 }

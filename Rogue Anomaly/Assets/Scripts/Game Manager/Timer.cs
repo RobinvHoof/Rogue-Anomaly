@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Timer : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class Timer : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Any GameObjects containing a class realizing the IActionEvent interface")] 
-    public List<GameObject> timedEvents;
+    public List<MonoBehaviour> timedEvents;
 
-    [SerializeField]
+    [SerializeField] 
     [Tooltip("The cooldowns attached to the Timed Events. Match indexes")] 
     public List<float> timedEventCooldowns;
 
@@ -58,9 +59,11 @@ public class Timer : MonoBehaviour
         while (true) {
             for(int i = 0; i < timedEvents.Count; i++)
             {
-                IActionEvent _event = timedEvents[i].GetComponent<IActionEvent>();
+                
+                IActionEvent _event = timedEvents[i] as IActionEvent;
                 if (_event == null)
                     continue;
+                
 
                 if (elapsedTime % timedEventCooldowns[i] == 0)
                 {
