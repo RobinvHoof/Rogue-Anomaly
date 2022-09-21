@@ -31,7 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870261554725289260}
-  m_LocalRotation: {x: -0.00000002986771, y: -0.6115321, z: 0.000000023084695, w: 0.7912196}
+  m_LocalRotation: {x: 0, y: -0.6115339, z: 0, w: 0.7912183}
   m_LocalPosition: {x: 12.315683, y: 1.4749478, z: 12.205637}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  chaseRange: 12.5
+  chaseRange: 25
   turnSpeed: 5
 --- !u!195 &59289601345929334
 NavMeshAgent:
@@ -170,7 +170,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 3.5
-  m_BaseOffset: 1
+  m_BaseOffset: 1.75
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &59289601345929332
