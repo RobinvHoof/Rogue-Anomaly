@@ -38,6 +38,7 @@ public class SpawnSpell : MonoBehaviour
     private float lastSpellCastTime = 0;
     private bool isCasting = false;
 
+    private FragileVampirismMutation fragileVampirismMutation;
 
     private void Start()
     {
