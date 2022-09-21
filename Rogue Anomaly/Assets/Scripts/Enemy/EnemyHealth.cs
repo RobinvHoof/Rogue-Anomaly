@@ -51,5 +51,11 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         {
             GetComponent<EnemyAI>().enabled = false;
         }
+        else if (GetComponent<EnemyAI_Boss>() != null)
+        {
+            GetComponent<EnemyAI_Boss>().enabled = false;
+            EnemyWeapon[] weaponScripts = GetComponentsInChildren<EnemyWeapon>();
+            foreach (EnemyWeapon script in weaponScripts) script.enabled = false;
+        }
     }
 }
