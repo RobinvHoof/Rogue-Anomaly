@@ -33,17 +33,22 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         if (IsDead) return;
         IsDead = true;
         GetComponent<NavMeshAgent>().enabled = false;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        GetComponent<Collider>().enabled = false;
+        if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     
         // Trigger death animition when present
         if (GetComponent<Animator>() != null) GetComponent<Animator>().SetTrigger("die");
 
-        // If ranged enemy, disable relevant scripts
+        // Determine type of enemy AI script, and disable necessary scripts
         if (GetComponent<EnemyAI_Range>() != null)
         {
             GetComponent<EnemyAI_Range>().enabled = false;
             EnemyWeapon[] weaponScripts = GetComponentsInChildren<EnemyWeapon>();
             foreach (EnemyWeapon script in weaponScripts) script.enabled = false;
+        }
+        else if (GetComponent<EnemyAI>() != null)
+        {
+            GetComponent<EnemyAI>().enabled = false;
         }
     }
 }
