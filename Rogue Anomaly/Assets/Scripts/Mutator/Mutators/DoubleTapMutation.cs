@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class SniperMutation : BaseMutation
+public class DoubleTapMutation : BaseMutation
 {
     [SerializeField]
     public GameObject weaponGroup;
 
-    public SniperMutation() : base("Götterdämmerung", "Ready your scopes and pull out the campfire. You fire four times slower but your shots deal five times as much damage!") {}
-    
+    public DoubleTapMutation() : base("Doubletap", "If one shot isnt enough make sure to doubletap to secure the kill! Your accuracy is slightly reduced but you shoot an extra pallet per shot for free!") {}
+
     public override void TriggerEvent(GameObject source, string eventName, params object[] parameters)
     {
         switch(eventName)
@@ -17,16 +16,16 @@ public class SniperMutation : BaseMutation
             case "startMutation":
                 foreach(Gun gun in GetAllGuns())
                 {
-                    gun.gunSettings.attackspeedModifier -= 0.75f;
-                    gun.gunSettings.damageModifier += 4f;
+                    gun.gunSettings.palletsPerShot += 1;
+                    gun.gunSettings.palletSpread += 10f;
                 }
                 break;
 
             case "stopMutation":
                 foreach(Gun gun in GetAllGuns())
                 {
-                    gun.gunSettings.attackspeedModifier += 0.75f;
-                    gun.gunSettings.damageModifier -= 4f;
+                    gun.gunSettings.attackspeedModifier -= 1;
+                    gun.gunSettings.damageModifier -= 10f;
                 }                
                 break;
         }
