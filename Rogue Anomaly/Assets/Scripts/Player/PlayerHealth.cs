@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour, IAttackable
     private float lastHitTime = -1;
 
     private LuckyBastardMutation luckyBastardMutation;
+
     void Start()
     {
         hitPoints = maxHealth;
