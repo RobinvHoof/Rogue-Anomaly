@@ -14,7 +14,10 @@ public abstract class BaseSpellEffect : MonoBehaviour
     protected float SpellCost = 10f;
     [SerializeField]
     protected float SpellDamage = 10f;
+    [SerializeField]
+    protected float SpellFireRate = 1f;
     public virtual float GetSpellCost() { return SpellCost; }
     public float GetSpellDamage() { return SpellDamage; }
     public abstract void TriggerSpellEffect(Collider other);
+    public float GetSpellFireRate() { return SpellFireRate; }
 }
