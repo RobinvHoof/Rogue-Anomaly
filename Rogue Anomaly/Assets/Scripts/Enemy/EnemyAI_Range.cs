@@ -6,14 +6,10 @@ using UnityEngine.AI;
 
 public class EnemyAI_Range : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    [SerializeField]
-    Transform target;
-
     const float turningSpeed = 2;
     float distanceToTarget = Mathf.Infinity;
 
+    Transform target;
     NavMeshAgent navMeshAgent;
     Animator enemyAnimator;
 
@@ -21,6 +17,7 @@ public class EnemyAI_Range : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
