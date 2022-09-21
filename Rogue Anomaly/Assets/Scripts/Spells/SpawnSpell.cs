@@ -33,10 +33,12 @@ public class SpawnSpell : MonoBehaviour
 
 
     private float lastSpellCast = 0;
+    private FragileVampirismMutation fragileVampirismMutation;
 
     private void Start()
     {
         CurrentMana = TotalMana;
+        fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
     }
 
     void Update()
@@ -47,6 +49,10 @@ public class SpawnSpell : MonoBehaviour
             {
                 GameObject obj = Instantiate(currentSpell,transform.position,transform.rotation);
                 obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
+                
+                // Trigger Fragile Vampirism mutation
+                fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
+
                 CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
                 lastSpellCast = Time.time;
                 Destroy(obj, 8f);

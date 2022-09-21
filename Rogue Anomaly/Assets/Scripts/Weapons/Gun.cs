@@ -6,16 +6,16 @@ public class Gun : Attack
 {
     [System.Serializable]
     public class GunSettings {
-        public AmmoType ammoType;
+        public AmmoType ammoType;//
 
-        [Min(0)]
-        public int clipSize = 10;
+        [Min(0)]//
+        public int clipSize = 10;//
 
         [Min(0)]
         public float rpm = 60;
 
-        [Min(0)]
-        public float reloadTime = 2;
+        [Min(0)]//
+        public float reloadTime = 2;//
 
         [Min(0)]
         public float range = 100;
@@ -27,7 +27,13 @@ public class Gun : Attack
         public float palletSpread = 0;
 
         [Range(0, 45)]
-        public float recoil = 0;        
+        public float recoil = 0;
+
+        [Min(0)]
+        public float damageModifier = 1;
+
+        [Min(0)]
+        public float attackspeedModifier = 1;
 
         public LayerMask penetrateLayers;
     }
@@ -44,12 +50,17 @@ public class Gun : Attack
     [SerializeField] 
     public GameObject hitEffect;
 
+
     private AmmoManager ammoManager;
     public int ammoInClip {get; private set;}
     public bool isReloading {get; private set;} = false;
+    
+    private FragileVampirismMutation fragileVampirismMutation;
 
     private void Start() {
         ammoManager = FindObjectOfType<AmmoManager>();
+        fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
+
         fillClip();
         StartCoroutine(CheckShoot());
     }
@@ -65,15 +76,15 @@ public class Gun : Attack
     {        
         while(true)
         {
-            if (Input.GetButton("Fire1") && !isReloading)
+             if (Input.GetButton("Fire1") && !isReloading)
             {
                 if (ammoInClip > 0)
                 {
                     for (int i = 0; i < gunSettings.palletsPerShot; i++)
                     {
-                        if (ammoInClip <= 0) break;
+                        if (ammoInClip <= 0) break;//
                         ammoInClip--;
-                        ammoManager.ReduceAmmo(gunSettings.ammoType);
+                        ammoManager.ReduceAmmo(gunSettings.ammoType);//
                         
                         RaycastHit hit;
 
@@ -81,13 +92,16 @@ public class Gun : Attack
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.up)) * (FPCamera.transform.forward).normalized +
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.right)) * (FPCamera.transform.forward).normalized;
 
+                        // Trigger Fragile Vampirism mutation
+                        fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
+
                         if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
                         {                    
-                            IHittable target = hit.collider.GetComponent<IHittable>();
+                            IAttackable target = hit.collider.GetComponent<IAttackable>();
                             if (target != null) 
                             {
-                                target.Hit(this, FPCamera.gameObject);
-                            }
+                                target.TakeDamage((int)(attackSettings.damage * gunSettings.damageModifier));
+                            }                            
 
                             GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
                             Destroy(impact, 0.2f);
@@ -96,7 +110,8 @@ public class Gun : Attack
 
                     muzzleFlash.Play(); 
                     FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
-                    yield return new WaitForSeconds(60 / gunSettings.rpm);
+                    
+                    yield return new WaitForSeconds(60 / (gunSettings.rpm * gunSettings.attackspeedModifier));
                 }
                 else if (ammoInClip <= 0 && ammoManager.GetCurrentAmmo(gunSettings.ammoType) > 0)
                 {
@@ -110,7 +125,7 @@ public class Gun : Attack
     IEnumerator ReloadGun()
     {
         isReloading = true;
-        yield return new WaitForSeconds(gunSettings.reloadTime);
+        yield return new WaitForSeconds(gunSettings.reloadTime);//
         fillClip();
         isReloading = false;
     }
