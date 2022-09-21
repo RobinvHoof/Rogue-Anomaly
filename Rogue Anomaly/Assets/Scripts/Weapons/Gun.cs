@@ -14,7 +14,7 @@ public class Gun : Attack
         [Min(0)]
         public float rpm = 60;
 
-        [Min(0)]//
+        [Min(0)]
         public float reloadTime = 2;
 
         [Min(0)]
@@ -64,7 +64,6 @@ public class Gun : Attack
         fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
 
         fillClip();
-        StartCoroutine(CheckShoot());
     }
 
     private void OnEnable() {
@@ -72,21 +71,24 @@ public class Gun : Attack
         {
             ammoInClip = ammoManager.GetCurrentAmmo(gunSettings.ammoType);
         }
+
+        StartCoroutine(CheckShoot());
     }
 
     private IEnumerator CheckShoot() 
-    {        
+    {       
         while(true)
-        {
-             if (Input.GetButton("Fire1") && !isReloading)
+        {            
+            if (Input.GetButton("Fire1") && !isReloading)
             {
                 if (ammoInClip > 0)
                 {
+                    ammoInClip--;
+                    ammoManager.ReduceAmmo(gunSettings.ammoType);
+
                     for (int i = 0; i < gunSettings.palletsPerShot; i++)
                     {
-                        if (ammoInClip <= 0) break;//
-                        ammoInClip--;
-                        ammoManager.ReduceAmmo(gunSettings.ammoType);//
+                        
                         
                         RaycastHit hit;
 

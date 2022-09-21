@@ -103,8 +103,8 @@ MonoBehaviour:
   attackSettings:
     damage: 30
   gunSettings:
-    ammoType: 0
-    clipSize: 4
+    ammoType: 1
+    clipSize: 10
     rpm: 60
     reloadTime: 2
     range: 30
