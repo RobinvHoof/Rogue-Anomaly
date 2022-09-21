@@ -6,62 +6,50 @@ public class SpawnSpell : MonoBehaviour
 {
     // Start is called before the first frame update
     
-    [SerializeField]
+
     [Header("Spell Data")]
-    public GameObject currentSpell;
-
     [SerializeField]
+    GameObject currentSpell;
+
     [Header("Mana Settings")]
-    public float TotalMana = 100f;
-
     [SerializeField]
-    public float CurrentMana = 0f;
-
+    float TotalMana = 100f;
+    [SerializeField]
+    float CurrentMana = 0f;
     [SerializeField]
     [Range(0,100)]
-    public float ManaRegenPerTick = 5f;
-
+    float ManaRegenPerTick = 5f;
     [SerializeField]
     [Range(0f,1f)]
-    public float TimeDelay = 0.2f;
-
+    float TimeDelay = 0.2f;
     [SerializeField]
-    public bool isRegenerating = false;
-
+    bool isRegenerating = false;
+    float lastSpellCast = 0;
     [SerializeField]
-    public int ManaRegenDelay = 5;
-
-
-    private float lastSpellCast = 0;
-    private FragileVampirismMutation fragileVampirismMutation;
+    int ManaRegenDelay = 5;
 
     private void Start()
     {
         CurrentMana = TotalMana;
-        fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
             if(currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost() <= CurrentMana)
             {
-                GameObject obj = Instantiate(currentSpell,transform.position,transform.rotation,transform);
+                GameObject obj = Instantiate(currentSpell, transform.position, transform.rotation);
                 obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
-                
-                // Trigger Fragile Vampirism mutation
-                fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
-
                 CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
                 lastSpellCast = Time.time;
-                Destroy(obj, 8f); //Acts as a failsafe
             }
         }
         CheckIfManaCanRegenerate();
     }
 
-    // Check if mana can be regenerated
+
     void CheckIfManaCanRegenerate()
     {
         if(lastSpellCast + ManaRegenDelay <= Time.time && !isRegenerating && CurrentMana < TotalMana)
@@ -70,7 +58,6 @@ public class SpawnSpell : MonoBehaviour
         }
     }
 
-    // Regenerate mana over time
     IEnumerator RegenerateMana()
     {
         isRegenerating = true;

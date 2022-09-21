@@ -16,7 +16,7 @@ public class EnemyAI_Range : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("FPSController").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
