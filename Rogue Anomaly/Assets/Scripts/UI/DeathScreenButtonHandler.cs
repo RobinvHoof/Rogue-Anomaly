@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DeathScreen : MonoBehaviour
+public class DeathScreenButtonHandler : MonoBehaviour
 {
-    public void ReloadGame()
+    public void Restart()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 
-    public void QuitGame()
+    public void Quit()
     {
         Application.Quit();
     }
