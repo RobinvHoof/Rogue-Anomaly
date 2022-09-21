@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6090a74e33d60044f941a827aaae73d2
+guid: 04c13cef75acddd42a983807b6d3fbac
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,9 +10,7 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Super Car
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 04c13cef75acddd42a983807b6d3fbac, type: 3}
-  - {fileID: 12800000, guid: 8f7fb166e3e836342b2b7e56d105e3db, type: 3}
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

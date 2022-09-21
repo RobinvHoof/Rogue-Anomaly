@@ -8,14 +8,6 @@ public class EnemyRoomManager : RoomManager
 
     float sweepTime = 1;
 
-    void Start()
-    {
-        foreach (EnemyHealth enemy in enemies)
-        {
-            enemy.gameObject.SetActive(false);
-        }
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
