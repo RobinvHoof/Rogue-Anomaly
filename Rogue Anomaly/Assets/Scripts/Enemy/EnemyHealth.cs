@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour, IAttackable
 {
@@ -31,7 +32,9 @@ public class EnemyHealth : MonoBehaviour, IAttackable
     {
         if (IsDead) return;
         IsDead = true;
-
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+    
         // Trigger death animition when present
         if (GetComponent<Animator>() != null) GetComponent<Animator>().SetTrigger("die");
 
