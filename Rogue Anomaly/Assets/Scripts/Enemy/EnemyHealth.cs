@@ -4,8 +4,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
 {
     [SerializeField] public int maxHealth = 100;
     int hitPoints;
-    bool isDead = false;
-    bool IsDead => isDead;
+    public bool IsDead { get; private set; } = false;
 
     private void Start()
     {
@@ -25,8 +24,8 @@ public class EnemyHealth : MonoBehaviour, IAttackable
 
     private void Die()
     {
-        if (isDead) return;
-        isDead = true;
+        if (IsDead) return;
+        IsDead = true;
         // Enable once animations are finished
         //GetComponent<Animator>().SetTrigger("die");
     }
