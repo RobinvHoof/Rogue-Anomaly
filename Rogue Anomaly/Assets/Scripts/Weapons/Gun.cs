@@ -6,10 +6,10 @@ public class Gun : Attack
 {
     [System.Serializable]
     public class GunSettings {
-        public AmmoType ammoType;//
+        public AmmoType ammoType;
 
-        [Min(0)]//
-        public int clipSize = 10;//
+        [Min(0)]
+        public int clipSize = 10;
 
         [Min(0)]
         public float rpm = 60;
@@ -50,12 +50,14 @@ public class Gun : Attack
     [SerializeField] 
     public GameObject hitEffect;
 
+    public AudioSource gunEffectSound;
+    public AudioSource gunReloadEffect;
 
-    private AmmoManager ammoManager;
-    public int ammoInClip {get; private set;}
-    public bool isReloading {get; private set;} = false;
+    protected AmmoManager ammoManager;
+    public int ammoInClip {get; set;}
+    public bool isReloading {get; set;} = false;
     
-    private FragileVampirismMutation fragileVampirismMutation;
+    protected FragileVampirismMutation fragileVampirismMutation;
 
     private void Start() {
         ammoManager = FindObjectOfType<AmmoManager>();
@@ -94,7 +96,7 @@ public class Gun : Attack
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.up)) * (FPCamera.transform.forward).normalized +
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.right)) * (FPCamera.transform.forward).normalized;
 
-                        // Trigger Fragile Vampirism mutation
+                        //Trigger Fragile Vampirism mutation
                         fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
 
                         if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
@@ -110,7 +112,8 @@ public class Gun : Attack
                         }
                     }
 
-                    muzzleFlash.Play(); 
+                    muzzleFlash.Play();
+                    gunEffectSound.Play(); 
                     FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
                     
                     yield return new WaitForSeconds(60 / (gunSettings.rpm * gunSettings.attackspeedModifier));
@@ -127,6 +130,7 @@ public class Gun : Attack
     IEnumerator ReloadGun()
     {
         isReloading = true;
+        gunReloadEffect.Play();
         yield return new WaitForSeconds(gunSettings.reloadTime);//
         fillClip();
         isReloading = false;

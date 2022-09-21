@@ -3,7 +3,9 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IAttackable
 {
     public int maxHealth = 100;
-    public int hitPoints{ get; private set; }
+
+    [SerializeField]
+    public int hitPoints;
     public bool IsDead { get; private set; } = false;
     private FragileVampirismMutation fragileVampirismMutation;
 
