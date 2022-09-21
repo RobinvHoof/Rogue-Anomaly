@@ -5,16 +5,22 @@ public class EnemyHealth : MonoBehaviour, IAttackable
     [SerializeField] int maxHealth = 100;
     [SerializeField] int hitPoints;
     bool isDead = false;
-    bool IsDead => isDead;
+    public bool IsDead => isDead;
+
+    private FragileVampirismMutation fragileVampirismMutation;
 
     private void Start()
     {
         hitPoints = maxHealth;
+        fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
     }
 
     public void TakeDamage(int damageAmount)
     {
         hitPoints -= damageAmount;
+
+        // Trigger Fragile Vampirism Mutation
+        fragileVampirismMutation.TriggerEvent(this.gameObject, "hitShot");
 
         if (hitPoints <= 0)
         {
