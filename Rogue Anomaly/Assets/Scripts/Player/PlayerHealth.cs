@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour, IAttackable
     private float lastHitTime = -1;
 
     private LuckyBastardMutation luckyBastardMutation;
+
     void Start()
     {
         hitPoints = maxHealth;
@@ -60,8 +61,6 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         {
             GetComponent<PlayerDeathHandler>().HandleDeath();
         }
-
-        Debug.Log(hitPoints);
     }
 
     // Heal x amount, capped at maxHealth
