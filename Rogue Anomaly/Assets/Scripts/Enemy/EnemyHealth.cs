@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
     public float maxHealth = 100;
 
 
-    private float hitPoints;
+    public float hitPoints;
     private bool isDead = false;
     private bool IsDead => isDead;
 
