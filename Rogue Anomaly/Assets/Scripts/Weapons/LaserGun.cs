@@ -27,7 +27,13 @@ public class LaserGun : Attack
         public float palletSpread = 0;
 
         [Range(0, 45)]
-        public float recoil = 0;        
+        public float recoil = 0;
+
+        [Min(0)]
+        public float damageModifier = 1;
+
+        [Min(0)]
+        public float attackspeedModifier = 1;
 
         public LayerMask penetrateLayers;
     }

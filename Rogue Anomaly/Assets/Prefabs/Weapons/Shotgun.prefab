@@ -103,11 +103,16 @@ MonoBehaviour:
   attackSettings:
     damage: 30
   gunSettings:
+    ammoType: 1
+    clipSize: 10
     rpm: 60
+    reloadTime: 2
     range: 30
     palletsPerShot: 5
     palletSpread: 5
     recoil: 3
+    damageModifier: 1
+    attackspeedModifier: 1
     penetrateLayers:
       serializedVersion: 2
       m_Bits: 0
