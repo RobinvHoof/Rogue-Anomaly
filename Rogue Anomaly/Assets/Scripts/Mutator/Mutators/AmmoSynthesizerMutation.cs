@@ -5,6 +5,9 @@ using UnityEngine;
 public class AmmoSynthesizerMutation : BaseMutation
 {
     [SerializeField]
+    public MutationManager mutationManager;
+
+    [SerializeField]
     public AmmoManager ammoManager;
 
     [SerializeField]
@@ -13,7 +16,7 @@ public class AmmoSynthesizerMutation : BaseMutation
 
     [SerializeField]
     [Range(0, 100)]
-    public int regenAmountPerTick = 5;
+    public int regenAmountPerTick = 20;
 
     public AmmoSynthesizerMutation() : base("Doubletap", "If one shot isnt enough make sure to doubletap to secure the kill! Your accuracy is slightly reduced but you shoot an extra pallet per shot for free!") {}
 
@@ -45,9 +48,12 @@ public class AmmoSynthesizerMutation : BaseMutation
                 break;
 
             case "timerTick":
-                foreach(AmmoManager.AmmoSlot slot in ammoManager.ammoSlots)
+                if (mutationManager.IsMutationActive(this))
                 {
-                    ammoManager.IncreaseAmmo(slot.ammoType, regenAmountPerTick);
+                    foreach(AmmoManager.AmmoSlot slot in ammoManager.ammoSlots)
+                    {
+                        ammoManager.IncreaseAmmo(slot.ammoType, regenAmountPerTick);
+                    }
                 }
                 break;
         }
