@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Rogue Anomaly/Assets/Scripts/Enemy/EnemyAI_Boss.cs.meta
+guid: 9bcfa756dd95bf04dbfaa98eee89da52
+========
 guid: 0ed8ffe4370e61645883caba3e4e0a2b
+>>>>>>>> Development:Rogue Anomaly/Assets/Scripts/Enemy/EnemyAI.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

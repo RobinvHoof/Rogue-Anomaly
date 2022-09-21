@@ -41,6 +41,8 @@ public class PlayerHealth : MonoBehaviour, IAttackable
         {
             GetComponent<PlayerDeathHandler>().HandleDeath();
         }
+
+        Debug.Log(hitPoints);
     }
 
     public void RestoreHealth(int healthAmount)
