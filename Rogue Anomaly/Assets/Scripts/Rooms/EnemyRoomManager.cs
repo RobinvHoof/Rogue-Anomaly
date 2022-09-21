@@ -18,6 +18,14 @@ public class EnemyRoomManager : RoomManager
             GetComponent<Collider>().enabled = false;
         }
     }
+    
+    void Start()
+    {
+        foreach (EnemyHealth enemy in enemies)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+    }
 
     void WakeEnemies()
     {

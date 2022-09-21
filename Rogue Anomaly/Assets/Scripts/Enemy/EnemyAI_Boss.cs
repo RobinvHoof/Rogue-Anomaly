@@ -27,7 +27,7 @@ public class EnemyAI_Boss : MonoBehaviour
     private Animator animator;
     void Start()
     {
-        target = GameObject.Find("FPSController").transform;
+        target = GameObject.Find("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         weapon = GetComponent<EnemyWeapon>();
         animator = GetComponent<Animator>();
