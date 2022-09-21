@@ -18,6 +18,12 @@ public class AmmoSynthesizerMutation : BaseMutation
     [Range(0, 100)]
     public int regenAmountPerTick = 20;
 
+    [SerializeField]
+    AudioSource audioSource;
+     
+    [SerializeField]
+    AudioClip produceAmmoSFX;
+
     public AmmoSynthesizerMutation() : base("Doubletap", "If one shot isnt enough make sure to doubletap to secure the kill! Your accuracy is slightly reduced but you shoot an extra pallet per shot for free!") {}
 
     private Dictionary<AmmoType, int> subtractedAmmoCap;
@@ -53,6 +59,8 @@ public class AmmoSynthesizerMutation : BaseMutation
                     foreach(AmmoManager.AmmoSlot slot in ammoManager.ammoSlots)
                     {
                         ammoManager.IncreaseAmmo(slot.ammoType, regenAmountPerTick);
+
+                        audioSource.PlayOneShot(produceAmmoSFX);
                     }
                 }
                 break;

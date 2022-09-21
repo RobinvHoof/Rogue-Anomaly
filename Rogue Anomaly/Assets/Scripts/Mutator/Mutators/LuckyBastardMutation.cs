@@ -11,6 +11,12 @@ public class LuckyBastardMutation : BaseMutation
     public PlayerHealth playerHealth;
 
     [SerializeField]
+    public AudioSource audioSource;
+
+    [SerializeField]
+    public AudioClip hitBlockedSFX;
+
+    [SerializeField]
     [Range(0, 100)]
     public float dodgeChance = 25f;
 
@@ -28,6 +34,8 @@ public class LuckyBastardMutation : BaseMutation
                     if (dodgeChance > Random.Range(0, 100))
                     {                        
                         playerHealth.RestoreHealth(System.Convert.ToInt32(parameters[0]));
+                        
+                        audioSource.PlayOneShot(hitBlockedSFX);                        
                     }                    
                 }
                 break;

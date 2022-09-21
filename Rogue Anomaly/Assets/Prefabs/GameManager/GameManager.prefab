@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e588d0c7121d108448dde6745be87142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FPSController: {fileID: 0}
+  FPController: {fileID: 0}
 --- !u!114 &711542508852539249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   ammoManager: {fileID: 711542508857175782}
   maxAmmoMultiplier: 0.75
   regenAmountPerTick: 5
+  audioSource: {fileID: 0}
+  produceAmmoSFX: {fileID: 8300000, guid: e879ef44859c7ea4193f72a0356a05d3, type: 3}
 --- !u!114 &711542508852539250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mutationManager: {fileID: 711542508857175777}
   playerHealth: {fileID: 0}
+  audioSource: {fileID: 0}
+  hitBlockedSFX: {fileID: 8300000, guid: 8606af53d56d996419f6405acc3a4ea5, type: 3}
   dodgeChance: 20
 --- !u!1 &711542508857175781
 GameObject:
@@ -219,10 +223,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711542508857175781}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31addb9c6aa4daa42bb6e474d52be75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  newMutationSound: {fileID: 8300000, guid: 0a12ed3556aabee4db657dfe55ea5bfe, type: 3}
   availableMutations: []
   activeMutations: []
