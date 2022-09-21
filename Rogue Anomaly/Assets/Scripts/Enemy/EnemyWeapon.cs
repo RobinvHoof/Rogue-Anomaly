@@ -19,6 +19,7 @@ public class EnemyWeapon : MonoBehaviour
     Transform target;
 
     bool readyToShoot = true;
+    public AudioSource source;
     public AudioClip clip;
     public float volume = 0.5f;
 
