@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2394121406618559594}
   - component: {fileID: 494648248099180704}
   - component: {fileID: 7570423088514248849}
-  - component: {fileID: 2454469576244246371}
   m_Layer: 0
   m_Name: Laser Rifle
   m_TagString: Untagged
@@ -109,7 +108,7 @@ MonoBehaviour:
     ammoType: 0
     clipSize: 20
     rpm: 120
-    reloadTime: 2
+    reloadTime: 1.5
     range: 80
     palletsPerShot: 1
     palletSpread: 0
@@ -122,38 +121,9 @@ MonoBehaviour:
   FPCamera: {fileID: 0}
   muzzleFlash: {fileID: 3093073470340108222}
   hitEffect: {fileID: 1288723713895748270, guid: a9ad505d4db48c7488901cb02eaf3692, type: 3}
+  gunEffectSound: {fileID: 0}
+  gunReloadEffect: {fileID: 0}
   laser: {fileID: 7883602229645557238}
---- !u!114 &2454469576244246371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2152064788062482805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b87913bf46a74a98234008a9d1552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSettings:
-    damage: 60
-  gunSettings:
-    ammoType: 0
-    clipSize: 10
-    rpm: 120
-    reloadTime: 5
-    range: 80
-    palletsPerShot: 1
-    palletSpread: 0
-    recoil: 1
-    damageModifier: 1
-    attackspeedModifier: 1
-    penetrateLayers:
-      serializedVersion: 2
-      m_Bits: 0
-  FPCamera: {fileID: 0}
-  muzzleFlash: {fileID: 3093073470340108222}
-  hitEffect: {fileID: 1288723713895748270, guid: a9ad505d4db48c7488901cb02eaf3692, type: 3}
 --- !u!1001 &3401224339402367715
 PrefabInstance:
   m_ObjectHideFlags: 0

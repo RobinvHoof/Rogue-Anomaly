@@ -5,11 +5,8 @@ using UnityEngine;
 public class LaserGun : Gun
 {
     [SerializeField] public ParticleSystem laser;
-    private AmmoManager ammoManager;
-    // public int ammoInClip {get; private set;}
-    // public bool isReloading {get; private set;} = false;
-
-    private FragileVampirismMutation fragileVampirismMutation;
+    // private AmmoManager ammoManager;
+    // private FragileVampirismMutation fragileVampirismMutation;
 
     private void Start() {
         ammoManager = FindObjectOfType<AmmoManager>();
@@ -64,6 +61,7 @@ public class LaserGun : Gun
                 
                     muzzleFlash.Play();
                     laser.Play();
+                    gunEffectSound.Play();
                     FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
                     yield return new WaitForSeconds(60 / gunSettings.rpm);
                 }
@@ -80,6 +78,7 @@ public class LaserGun : Gun
     IEnumerator ReloadGun()
     {
         isReloading = true;
+        gunReloadEffect.Play();
         yield return new WaitForSeconds(gunSettings.reloadTime);
         fillClip();
         isReloading = false;
