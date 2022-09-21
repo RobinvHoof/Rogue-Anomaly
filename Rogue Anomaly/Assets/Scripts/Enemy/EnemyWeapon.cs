@@ -20,11 +20,6 @@ public class EnemyWeapon : MonoBehaviour
 
     bool readyToShoot = true;
 
-    private void Start()
-    {
-        target = GameObject.Find("FPSController").transform;
-    }
-
     private void Update()
     {
         if (readyToShoot)
