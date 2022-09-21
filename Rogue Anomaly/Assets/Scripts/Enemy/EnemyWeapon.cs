@@ -19,6 +19,8 @@ public class EnemyWeapon : MonoBehaviour
     Transform target;
 
     bool readyToShoot = true;
+    public AudioClip clip;
+    public float volume = 0.5f;
 
     private void Start()
     {
@@ -41,5 +43,6 @@ public class EnemyWeapon : MonoBehaviour
         Destroy(instance, 3f);
         yield return new WaitForSeconds(fireDelay);
         readyToShoot = true;
+        source.PlayOneShot(source.clip, volume);
     }
 }
