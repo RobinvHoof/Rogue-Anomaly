@@ -113,6 +113,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5366953176196936453, guid: c7036a0650b4bc34e84c5b79e0f1763d, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 974764858569248959, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
     - target: {fileID: 5946486971716604496, guid: c7036a0650b4bc34e84c5b79e0f1763d, type: 3}
       propertyPath: m_Name
       value: WeaponPickup (SMG)
