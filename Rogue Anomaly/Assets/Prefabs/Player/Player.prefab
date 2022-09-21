@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 824040614758229415}
   - component: {fileID: 824040614758229414}
   - component: {fileID: 824040614758229413}
-  - component: {fileID: 8383023221026181225}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -96,21 +95,6 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824040614758229411}
   m_Enabled: 1
---- !u!114 &8383023221026181225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824040614758229411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79932597a165fd4dbf7872f5cfff5f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthRegenerationRate: 1
-  regenerationDelay: 1
 --- !u!1 &824040614761294892
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824040615905166544}
   - component: {fileID: 824040615905166543}
+  - component: {fileID: 4893871971062671395}
   - component: {fileID: 824040615905166542}
   - component: {fileID: 824040615905166541}
   - component: {fileID: 824040615905166540}
@@ -200,6 +185,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4893871971062671395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824040615905166539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79932597a165fd4dbf7872f5cfff5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthRegenerationRate: 1
+  regenerationDelay: 1
 --- !u!114 &824040615905166542
 MonoBehaviour:
   m_ObjectHideFlags: 0
