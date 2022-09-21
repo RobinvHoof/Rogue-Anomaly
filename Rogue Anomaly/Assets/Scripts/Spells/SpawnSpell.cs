@@ -11,6 +11,9 @@ public class SpawnSpell : MonoBehaviour
     public GameObject currentSpell;
 
     [SerializeField]
+    public float SpellFireDelay = 1f;
+
+    [SerializeField]
     [Header("Mana Settings")]
     public float TotalMana = 100f;
 
@@ -31,22 +34,33 @@ public class SpawnSpell : MonoBehaviour
     [SerializeField]
     public int ManaRegenDelay = 5;
 
+<<<<<<< Updated upstream
 
     private float lastSpellCast = 0;
     private FragileVampirismMutation fragileVampirismMutation;
+=======
+    private string lastSpell;
+    private float lastSpellCastTime = 0;
+    private bool isCasting = false;
+>>>>>>> Stashed changes
 
     private void Start()
     {
         CurrentMana = TotalMana;
+<<<<<<< Updated upstream
         fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
+=======
+        lastSpell = null;
+>>>>>>> Stashed changes
     }
 
     void Update()
     {
         if(Input.GetMouseButtonDown(1))
         {
-            if(currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost() <= CurrentMana)
+            if(currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost() <= CurrentMana && isCasting == false)
             {
+<<<<<<< Updated upstream
                 GameObject obj = Instantiate(currentSpell,transform.position,transform.rotation);
                 obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
                 
@@ -56,15 +70,36 @@ public class SpawnSpell : MonoBehaviour
                 CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
                 lastSpellCast = Time.time;
                 Destroy(obj, 8f);
+=======
+                StartCoroutine(CastSpell());
+>>>>>>> Stashed changes
             }
         }
         CheckIfManaCanRegenerate();
+
+        if (lastSpell != currentSpell.name)
+        {
+            lastSpell = currentSpell.name;
+            SpellFireDelay = currentSpell.GetComponent<BaseSpellEffect>().GetSpellFireRate();
+        }
+    }
+
+    IEnumerator CastSpell()
+    {
+        isCasting = true;
+        GameObject obj = Instantiate(currentSpell, transform.position, transform.rotation);
+        obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
+        CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
+        lastSpellCastTime = Time.time;
+        yield return new WaitForSeconds(SpellFireDelay);
+        Destroy(obj, 8f);
+        isCasting = false;
     }
 
     // Check if mana can be regenerated
     void CheckIfManaCanRegenerate()
     {
-        if(lastSpellCast + ManaRegenDelay <= Time.time && !isRegenerating && CurrentMana < TotalMana)
+        if(lastSpellCastTime + ManaRegenDelay <= Time.time && !isRegenerating && CurrentMana < TotalMana)
         {
             StartCoroutine(RegenerateMana());
         }
