@@ -3,9 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IAttackable
 {
     public int maxHealth = 100;
-
-    [SerializeField]
-    public int hitPoints;
+    public int hitPoints { get; private set; }
     public bool IsDead { get; private set; } = false;
     private FragileVampirismMutation fragileVampirismMutation;
 
@@ -33,7 +31,16 @@ public class EnemyHealth : MonoBehaviour, IAttackable
     {
         if (IsDead) return;
         IsDead = true;
-        // Enable once animations are finished
-        //GetComponent<Animator>().SetTrigger("die");
+
+        // Trigger death animition when present
+        if (GetComponent<Animator>() != null) GetComponent<Animator>().SetTrigger("die");
+
+        // If ranged enemy, disable relevant scripts
+        if (GetComponent<EnemyAI_Range>() != null)
+        {
+            GetComponent<EnemyAI_Range>().enabled = false;
+            EnemyWeapon[] weaponScripts = GetComponentsInChildren<EnemyWeapon>();
+            foreach (EnemyWeapon script in weaponScripts) script.enabled = false;
+        }
     }
 }
