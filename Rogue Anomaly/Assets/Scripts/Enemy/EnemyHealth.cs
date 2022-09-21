@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         IsDead = true;
 
         GetComponent<NavMeshAgent>().enabled = false;
-        GetComponent<Collider>().isTrigger = true;
+        GetComponent<Collider>().enabled = true;
         if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     
         // Trigger death animition when present
@@ -50,6 +50,12 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         else if (GetComponent<EnemyAI>() != null)
         {
             GetComponent<EnemyAI>().enabled = false;
+        }
+        else if (GetComponent<EnemyAI_Boss>() != null)
+        {
+            GetComponent<EnemyAI_Boss>().enabled = false;
+            EnemyWeapon[] weaponScripts = GetComponentsInChildren<EnemyWeapon>();
+            foreach (EnemyWeapon script in weaponScripts) script.enabled = false;
         }
     }
 }
