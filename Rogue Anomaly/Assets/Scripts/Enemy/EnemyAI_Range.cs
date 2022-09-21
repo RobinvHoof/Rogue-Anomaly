@@ -8,21 +8,20 @@ public class EnemyAI_Range : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    Transform target;
+    [SerializeField] Transform target;
 
     const float turningSpeed = 2;
 
-    NavMeshAgent navMeshAgent;
 
     void Start()
     {
-        target = GameObject.Find("FPSController").transform;
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        
+        
     }
 
     void Update()
     {
-        navMeshAgent.SetDestination(target.position);
+       
         RotateToTarget();
     }
 
@@ -33,3 +32,4 @@ public class EnemyAI_Range : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turningSpeed);
     }
 }
+

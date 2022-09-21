@@ -21,8 +21,6 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-
-
         distanceToTarget = Vector3.Distance(target.position, transform.position);
         if(isProvoked){
             EngageTarget();

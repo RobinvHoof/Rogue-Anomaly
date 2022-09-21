@@ -22,7 +22,7 @@ public class EnemyWeapon : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.Find("FPSController").transform;
+        target = GameObject.Find("Player").transform;
     }
 
     private void Update()
