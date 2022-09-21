@@ -52,8 +52,8 @@ public class Gun : Attack
 
 
     private AmmoManager ammoManager;
-    public int ammoInClip {get; private set;}
-    public bool isReloading {get; private set;} = false;
+    public int ammoInClip {get; set;}
+    public bool isReloading {get; set;} = false;
     
     private FragileVampirismMutation fragileVampirismMutation;
 
