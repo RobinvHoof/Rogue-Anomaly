@@ -10,7 +10,7 @@ public class EnemyRoomManager : RoomManager
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !Cleared)
+        if (other.gameObject.tag == "Player" && !Cleared && !Active)
         {
             TriggerRoomEnter();
             WakeEnemies();
