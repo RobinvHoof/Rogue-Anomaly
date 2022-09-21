@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    [SerializeField]
+    int BulletDamage = 10;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (other.tag == "Player")
         {
-            Debug.Log("Boom!");         
-
+            other.GetComponent<PlayerHealth>().TakeDamage(BulletDamage);
         }
 
         if(other.tag != "Enemy")

@@ -34,45 +34,26 @@ public class SpawnSpell : MonoBehaviour
     [SerializeField]
     public int ManaRegenDelay = 5;
 
-<<<<<<< Updated upstream
-
-    private float lastSpellCast = 0;
-    private FragileVampirismMutation fragileVampirismMutation;
-=======
     private string lastSpell;
     private float lastSpellCastTime = 0;
     private bool isCasting = false;
->>>>>>> Stashed changes
+
 
     private void Start()
     {
         CurrentMana = TotalMana;
-<<<<<<< Updated upstream
         fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
-=======
         lastSpell = null;
->>>>>>> Stashed changes
     }
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))
+        if (currentSpell == null) { return; }
+        if(Input.GetMouseButtonDown(0))
         {
             if(currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost() <= CurrentMana && isCasting == false)
             {
-<<<<<<< Updated upstream
-                GameObject obj = Instantiate(currentSpell,transform.position,transform.rotation);
-                obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
-                
-                // Trigger Fragile Vampirism mutation
-                fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
-
-                CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
-                lastSpellCast = Time.time;
-                Destroy(obj, 8f);
-=======
                 StartCoroutine(CastSpell());
->>>>>>> Stashed changes
             }
         }
         CheckIfManaCanRegenerate();
@@ -89,6 +70,7 @@ public class SpawnSpell : MonoBehaviour
         isCasting = true;
         GameObject obj = Instantiate(currentSpell, transform.position, transform.rotation);
         obj.GetComponent<Rigidbody>().AddForce(transform.forward * 2, ForceMode.Impulse);
+        fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
         CurrentMana -= currentSpell.GetComponent<BaseSpellEffect>().GetSpellCost();
         lastSpellCastTime = Time.time;
         yield return new WaitForSeconds(SpellFireDelay);

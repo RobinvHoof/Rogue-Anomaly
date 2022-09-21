@@ -10,10 +10,19 @@ public class EnemyRoomManager : RoomManager
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !Cleared && !Active)
         {
             TriggerRoomEnter();
+            WakeEnemies();
             StartCoroutine(CheckEnemies());
+        }
+    }
+
+    void WakeEnemies()
+    {
+        foreach (EnemyHealth enemy in enemies)
+        {
+            enemy.gameObject.SetActive(true);
         }
     }
 
