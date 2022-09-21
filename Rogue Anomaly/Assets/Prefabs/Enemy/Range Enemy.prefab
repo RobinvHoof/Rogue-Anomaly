@@ -648,7 +648,6 @@ Transform:
   - {fileID: 4001623096879451801}
   - {fileID: 1508829593740662688}
   - {fileID: 1740726630278431540}
-  - {fileID: 8816761089869824187}
   m_Father: {fileID: 9153768317320126327}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -970,6 +969,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5444075511250572833}
+  - {fileID: 8816761089869824187}
   m_Father: {fileID: 268072599324233705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1136,7 +1136,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5444075511250572833}
+    m_TransformParent: {fileID: 9153768317320126327}
     m_Modifications:
     - target: {fileID: 2625463762772414069, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_Name
@@ -1148,7 +1148,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0070000016
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0069999974
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0069999974
       objectReference: {fileID: 0}
     - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1156,19 +1168,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.027922776
+      value: 0.0021756052
       objectReference: {fileID: 0}
     - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0021756086
+      value: 0.02792278
       objectReference: {fileID: 0}
     - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1196,6 +1208,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: de4412234589ee041a27c47eb5aa9e97, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 107e341b9702d604093e82520ce6f139, type: 3}
+--- !u!1 &8147220443701254657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2625463762772414069, guid: 107e341b9702d604093e82520ce6f139, type: 3}
+  m_PrefabInstance: {fileID: 6160705153011340404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &129659473405875365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8147220443701254657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e4a514708e82049955ca5a1fa4af0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireDelay: 2
+  bulletPrefab: {fileID: 1343504842343394, guid: bb31114f4c681a94f81fcb3da810dd14, type: 3}
+  bulletSpeed: 1
+  target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!4 &8816761089869824187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3396934359444722895, guid: 107e341b9702d604093e82520ce6f139, type: 3}
