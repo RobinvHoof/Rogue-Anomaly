@@ -19,6 +19,10 @@ public class EnemyAI_Boss : MonoBehaviour
 
     [SerializeField] Transform minionPoint1;
     [SerializeField] Transform minionPoint2;
+    [SerializeField] Transform minionPoint3;
+    [SerializeField] Transform minionPoint4;
+    [SerializeField] Transform minionPoint5;
+    [SerializeField] Transform minionPoint6;
 
     [SerializeField] float navmeshStoppingDistanceRange = 20f;
     [SerializeField] float navmeshStoppingDistanceMelee = 2f;
@@ -42,6 +46,10 @@ public class EnemyAI_Boss : MonoBehaviour
             bossSpawnMinions = false;
             Instantiate(minionPrefab, minionPoint1.position, minionPoint1.rotation);
             Instantiate(minionPrefab, minionPoint2.position, minionPoint2.rotation);
+            Instantiate(minionPrefab, minionPoint3.position, minionPoint3.rotation);
+            Instantiate(minionPrefab, minionPoint4.position, minionPoint4.rotation);
+            Instantiate(minionPrefab, minionPoint5.position, minionPoint5.rotation);
+            Instantiate(minionPrefab, minionPoint6.position, minionPoint6.rotation);
         }
         DistanceToTarget = Vector3.Distance(target.position, transform.position);
         EngageTarget();
