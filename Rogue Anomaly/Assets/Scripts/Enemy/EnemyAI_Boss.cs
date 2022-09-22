@@ -17,6 +17,8 @@ public class EnemyAI_Boss : MonoBehaviour
 
     private bool bossSpawnMinions;
 
+    [SerializeField] int meleeDamage = 35;
+
     [SerializeField] Transform minionPoint1;
     [SerializeField] Transform minionPoint2;
     [SerializeField] Transform minionPoint3;
@@ -157,5 +159,6 @@ public class EnemyAI_Boss : MonoBehaviour
     private void AttackHitEvent()
     {
         Debug.Log("attack");
+        target.GetComponent<PlayerHealth>().TakeDamage(meleeDamage);
     }
 }
