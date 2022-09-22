@@ -73,6 +73,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 355678722430056139}
     m_Modifications:
+    - target: {fileID: 224072816341527330, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 502390784434487028, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
       propertyPath: m_Name
       value: Pistol
@@ -119,6 +123,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 987143107853542478, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554125538723264910, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
