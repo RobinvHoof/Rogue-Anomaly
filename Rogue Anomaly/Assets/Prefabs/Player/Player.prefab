@@ -233,7 +233,7 @@ MonoBehaviour:
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
+  m_JumpSpeed: 7
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
@@ -798,7 +798,7 @@ PrefabInstance:
       objectReference: {fileID: 824040614758229415}
     - target: {fileID: 4155855481275989125, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
       propertyPath: gunSettings.rpm
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4155855481275989125, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
       propertyPath: attackSettings.damage
