@@ -50,18 +50,20 @@ public class Gun : Attack
     [SerializeField] 
     public GameObject hitEffect;
 
-    private AmmoManager ammoManager;
-    public int ammoInClip {get; private set;}
-    public bool isReloading {get; private set;} = false;
+    public AudioSource gunEffectSound;
+    public AudioSource gunReloadEffect;
+
+    protected AmmoManager ammoManager;
+    public int ammoInClip {get; set;}
+    public bool isReloading {get; set;} = false;
     
-    private FragileVampirismMutation fragileVampirismMutation;
+    protected FragileVampirismMutation fragileVampirismMutation;
 
     private void Start() {
         ammoManager = FindObjectOfType<AmmoManager>();
         fragileVampirismMutation = FindObjectOfType<FragileVampirismMutation>();
 
         fillClip();
-        StartCoroutine(CheckShoot());
     }
 
     private void OnEnable() {
@@ -69,21 +71,24 @@ public class Gun : Attack
         {
             ammoInClip = ammoManager.GetCurrentAmmo(gunSettings.ammoType);
         }
+
+        StartCoroutine(CheckShoot());
     }
 
     private IEnumerator CheckShoot() 
-    {        
+    {       
         while(true)
-        {
+        {            
             if (Input.GetButton("Fire1") && !isReloading)
             {
                 if (ammoInClip > 0)
                 {
+                    ammoInClip--;
+                    ammoManager.ReduceAmmo(gunSettings.ammoType);
+
                     for (int i = 0; i < gunSettings.palletsPerShot; i++)
                     {
-                        if (ammoInClip <= 0) break;
-                        ammoInClip--;
-                        ammoManager.ReduceAmmo(gunSettings.ammoType);
+                        
                         
                         RaycastHit hit;
 
@@ -91,13 +96,13 @@ public class Gun : Attack
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.up)) * (FPCamera.transform.forward).normalized +
                             Quaternion.AngleAxis(Random.Range(-gunSettings.palletSpread, gunSettings.palletSpread), Vector3.Cross((FPCamera.transform.forward).normalized, Vector3.right)) * (FPCamera.transform.forward).normalized;
 
-                        // Trigger Fragile Vampirism mutation
+                        //Trigger Fragile Vampirism mutation
                         fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
 
                         if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
-                        {                    
+                        {
                             IAttackable target = hit.collider.GetComponent<IAttackable>();
-                            if (target != null) 
+                            if (target != null && target as PlayerHealth == null)
                             {
                                 target.TakeDamage((int)(attackSettings.damage * gunSettings.damageModifier));
                             }                            
@@ -107,8 +112,10 @@ public class Gun : Attack
                         }
                     }
 
-                    muzzleFlash.Play(); 
+                    muzzleFlash.Play();
+                    gunEffectSound.Play(); 
                     FPCamera.transform.rotation *= Quaternion.Euler(-gunSettings.recoil, 0, 0);
+                    
                     yield return new WaitForSeconds(60 / (gunSettings.rpm * gunSettings.attackspeedModifier));
                 }
                 else if (ammoInClip <= 0 && ammoManager.GetCurrentAmmo(gunSettings.ammoType) > 0)
@@ -123,7 +130,8 @@ public class Gun : Attack
     IEnumerator ReloadGun()
     {
         isReloading = true;
-        yield return new WaitForSeconds(gunSettings.reloadTime);
+        gunReloadEffect.Play();
+        yield return new WaitForSeconds(gunSettings.reloadTime);//
         fillClip();
         isReloading = false;
     }

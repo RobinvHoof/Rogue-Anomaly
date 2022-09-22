@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class SpellHUDHandler : MonoBehaviour
 {
     [SerializeField]
-    public GameObject spellSystem;
+    public SpawnSpell spellSystem;
 
     [SerializeField]
     public RawImage spellBorder;
+
+    [SerializeField]
+    public GameObject manaBar;
 
     private RawImage iconRenderer;
 
@@ -21,17 +24,28 @@ public class SpellHUDHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject activeSpell = spellSystem.GetComponent<SpawnSpell>().currentSpell;
+        GameObject activeSpell = spellSystem.currentSpell;
 
         if (activeSpell == null)
         {
             iconRenderer.enabled = false;
             spellBorder.enabled = false;
+            manaBar.SetActive(false);
             return;
         }
 
         iconRenderer.enabled = true;
         spellBorder.enabled = true;
+        manaBar.SetActive(true);
         iconRenderer.texture = activeSpell.GetComponent<BaseSpellEffect>().SpellIcon;
+
+        Slider manaSlider = manaBar.GetComponent<Slider>();
+        
+        manaSlider.value = MapValue(spellSystem.CurrentMana, 0, spellSystem.TotalMana, 0, 1);
+    }
+
+    private float MapValue(float value, float fromLow, float fromHigh, float toLow, float toHigh) 
+    {
+        return (value - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;
     }
 }

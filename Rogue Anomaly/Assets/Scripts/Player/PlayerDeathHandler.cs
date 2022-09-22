@@ -6,19 +6,33 @@ public class PlayerDeathHandler : MonoBehaviour
     [SerializeField] 
     public Canvas gameOverCanvas;
 
+    [SerializeField]
+    public Canvas playUICanvas;
+
+    [SerializeField]
+    public Camera postDeathCamera;
+
 
     private FirstPersonController playerController;
+    private Timer timerHandler;
     
     private void Start() {
+        postDeathCamera.gameObject.SetActive(false);
         gameOverCanvas.enabled = false;
-        playerController = GetComponent<FirstPersonController>();
+        playUICanvas.enabled = true;
+
+        playerController = FindObjectOfType<FirstPersonController>();
+        timerHandler = FindObjectOfType<Timer>();
     }
 
     public void HandleDeath()
-    {
-        playerController.enabled = false;
+    {   
+        postDeathCamera.gameObject.SetActive(true);
+        playerController.gameObject.SetActive(false);
+        timerHandler.StopTimer();
+        
         gameOverCanvas.enabled = true;
-        Time.timeScale = 0;
+        playUICanvas.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

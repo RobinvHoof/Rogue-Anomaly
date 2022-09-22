@@ -1,12 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour, IAttackable
 {
-    [SerializeField] int maxHealth = 100;
-    [SerializeField] int hitPoints;
-    bool isDead = false;
-    public bool IsDead => isDead;
-
+    public int maxHealth = 100;
+    public int hitPoints { get; private set; }
+    public bool IsDead { get; private set; } = false;
     private FragileVampirismMutation fragileVampirismMutation;
 
     private void Start()
@@ -17,6 +16,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
 
     public void TakeDamage(int damageAmount)
     {
+        //BroadcastMessage("OnDamageTaken");
         hitPoints -= damageAmount;
 
         // Trigger Fragile Vampirism Mutation
@@ -28,12 +28,36 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         }
     }
 
-    // Kill unit
     private void Die()
     {
-        if (isDead) return;
-        isDead = true;
-        // Enable once animations are finished
-        //GetComponent<Animator>().SetTrigger("die");
+        if (IsDead) return;
+        IsDead = true;
+
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+    
+        // Trigger death animition when present
+        if (GetComponent<Animator>() != null) GetComponent<Animator>().SetTrigger("die");
+
+        // Determine type of enemy AI script, and disable necessary scripts
+        if (GetComponent<EnemyAI_Range>() != null)
+        {
+            GetComponent<EnemyAI_Range>().enabled = false;
+            EnemyWeapon[] weaponScripts = GetComponentsInChildren<EnemyWeapon>();
+            foreach (EnemyWeapon script in weaponScripts) script.enabled = false;
+        }
+        else if (GetComponent<EnemyAI>() != null)
+        {
+            GetComponent<EnemyAI>().enabled = false;
+            Destroy(GetComponent<EnemyAI>().gameObject);
+        }
+        else if (GetComponent<EnemyAI_Boss>() != null)
+        {
+            GetComponent<EnemyAI_Boss>().enabled = false;
+            EnemyWeapon[] weaponScripts = GetComponentsInChildren<EnemyWeapon>();
+            foreach (EnemyWeapon script in weaponScripts) script.enabled = false;
+            Destroy(gameObject);
+        }
     }
 }

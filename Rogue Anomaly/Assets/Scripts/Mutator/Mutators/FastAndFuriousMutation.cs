@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class FastAndFuriousMutation : BaseMutation
 {
     [SerializeField]
-    public RigidbodyFirstPersonController FPSController;
+    public FirstPersonController FPController;
 
 
     public FastAndFuriousMutation() : base("Fast and Furious", "Take a shot of energy and run those legs off! You get icreased movement speed") {}
@@ -23,19 +23,25 @@ public class FastAndFuriousMutation : BaseMutation
         switch(eventName)
         {           
             case "startMutation":
-                playerIncreaseAmount.Add("Forward", FPSController.movementSettings.ForwardSpeed);
+                /*playerIncreaseAmount.Add("Forward", FPController.AddSpeedBoost(1f) .ForwardSpeed);
                 playerIncreaseAmount.Add("Backward", FPSController.movementSettings.BackwardSpeed);
                 playerIncreaseAmount.Add("Strafe", FPSController.movementSettings.StrafeSpeed);
 
                 FPSController.movementSettings.ForwardSpeed *= 2;
                 FPSController.movementSettings.BackwardSpeed *= 2;
-                FPSController.movementSettings.StrafeSpeed *= 2;
+                FPSController.movementSettings.StrafeSpeed *= 2;*/
+
+                FPController.AddSpeedBoost(2f);
                 break;
 
             case "stopMutation":
+                /*
                 FPSController.movementSettings.ForwardSpeed -= playerIncreaseAmount["Forward"];
                 FPSController.movementSettings.BackwardSpeed -= playerIncreaseAmount["Backward"];
                 FPSController.movementSettings.StrafeSpeed -= playerIncreaseAmount["Strafe"];
+                */
+
+                FPController.AddSpeedBoost(-2f);
                 break;
         }
     }
