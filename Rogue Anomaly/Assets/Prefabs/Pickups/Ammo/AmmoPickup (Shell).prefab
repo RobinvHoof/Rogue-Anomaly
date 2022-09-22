@@ -376,6 +376,10 @@ PrefabInstance:
       propertyPath: ammoType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1404979065525558221, guid: 0cf0ce747648ace4cb20b2d6afda5563, type: 3}
+      propertyPath: increasePercentage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2976394250824681712, guid: 0cf0ce747648ace4cb20b2d6afda5563, type: 3}
       propertyPath: m_Name
       value: AmmoPickup (Shell)

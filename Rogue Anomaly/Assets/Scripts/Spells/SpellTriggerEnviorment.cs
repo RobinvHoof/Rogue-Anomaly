@@ -9,11 +9,10 @@ public class SpellTriggerEnviorment : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hello!");
-        if (other.name != "Player")
+        if (other.tag != "Player")
         {
             this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
-            GameObject obj = Instantiate(impactParticle, gameObject.transform.position, gameObject.transform.rotation); // Make sure this looks at the camera!
+            GameObject obj = Instantiate(impactParticle, gameObject.transform.position, gameObject.transform.rotation); 
             Destroy(obj, 1f);
             Destroy(gameObject);
         }
