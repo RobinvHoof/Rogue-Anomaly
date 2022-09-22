@@ -14,10 +14,20 @@ public class WinHandler : MonoBehaviour
     [SerializeField]
     FirstPersonController FPController;
 
+    [SerializeField]
+    Camera externalCamera;
+
+ 
+    private void Start()
+    {
+        winCanvas.enabled = false;
+    }
+
     private void OnTriggerEnter(Collider other) {
         winCanvas.enabled = true;
         playCanvas.enabled = false;
         FPController.gameObject.SetActive(false);
+        externalCamera.gameObject.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
