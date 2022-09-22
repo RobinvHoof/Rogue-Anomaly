@@ -38,7 +38,6 @@ public class SpellDisplay : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hello!");
         if (other.tag == "Player")
         {
             other.GetComponentInChildren<SpawnSpell>().currentSpell = SpellToGive;
