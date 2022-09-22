@@ -9689,7 +9689,7 @@ MonoBehaviour:
   SpellCost: 75
   SpellDamage: 75
   SpellFireRate: 1
-  radius: 20
+  radius: 5
 --- !u!199 &199541557569965598
 ParticleSystemRenderer:
   serializedVersion: 6
