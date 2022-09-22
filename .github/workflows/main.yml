@@ -1,0 +1,30 @@
+name: Sync
+on:
+  workflow_dispatch:
+  
+jobs:
+  sync-branches:
+    strategy:
+      max-parallel: 5
+      matrix:
+        branch: [mutator, Weapons, User-Interface, SpellSystem, Room-Layouts, PickupSystem, Minimap, Initial_Asset_Adding, Grid-System, CreateEnemy, Boss]
+        
+    runs-on: ubuntu-latest
+    name: Syncing branches
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "development"
+          destination_branch: ${{ matrix.branch }}
+          pr_title: "Sycning Branch to Development | Development -> ${{ matrix.branch }} " 
+          pr_body: Development syncronization to ${{ matrix.branch }}              
+          pr_label: "Automated"                               
+          pr_allow_empty: false                              
+          github_token: ${{ secrets.ACCESS_TOKEN }}
