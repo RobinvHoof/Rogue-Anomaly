@@ -358,7 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64097b4f465c394290cf995c29b7543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &8869221839821986796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,8 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7717501f7b2118547ac45051b26e462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  hitPoints: 0
+  maxHealth: 250
 --- !u!195 &742095013
 NavMeshAgent:
   m_ObjectHideFlags: 0
