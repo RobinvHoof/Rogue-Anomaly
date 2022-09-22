@@ -8,6 +8,6 @@ public class FireBolt : BaseSpellEffect
 {
     public override void TriggerSpellEffect(Collider other)
     {
-        other.GetComponent<EnemyHealth>().TakeDamage((int)this.GetSpellDamage());
+        other.gameObject.GetComponent<EnemyHealth>().TakeDamage((int)GetSpellDamage());
     }
 }

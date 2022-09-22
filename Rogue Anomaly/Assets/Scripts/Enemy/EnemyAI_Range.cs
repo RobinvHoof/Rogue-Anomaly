@@ -6,26 +6,33 @@ using UnityEngine.AI;
 
 public class EnemyAI_Range : MonoBehaviour
 {
-    [SerializeField]
-    public const float turningSpeed = 2;
+    const float turningSpeed = 2;
+    float distanceToTarget = Mathf.Infinity;
 
-
-    private Transform target;
-    private NavMeshAgent navMeshAgent;
+    Transform target;
+    NavMeshAgent navMeshAgent;
+    Animator enemyAnimator;
 
     void Start()
     {
-        target = GameObject.Find("FPSController").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        enemyAnimator = GetComponent<Animator>();
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
-        navMeshAgent.SetDestination(target.position);
+        distanceToTarget = Vector3.Distance(target.position, transform.position);
+        if (distanceToTarget >= navMeshAgent.stoppingDistance) ChaseTarget();
         RotateToTarget();
     }
 
-    // Rotate the unit to face the target
+    void ChaseTarget()
+    {
+        enemyAnimator.SetTrigger("move");
+        navMeshAgent.SetDestination(target.position);
+    }
+
     private void RotateToTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;

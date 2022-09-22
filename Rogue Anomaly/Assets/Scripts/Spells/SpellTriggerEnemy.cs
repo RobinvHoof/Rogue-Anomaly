@@ -9,9 +9,10 @@ public class SpellTriggerEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag != "Player")
+        Debug.Log(other.gameObject.name);
+        if (other.tag != "Player")
         {
-            if (other.tag == "Enemy")
+            if(other.tag == "Enemy")
             {
                 this.GetComponent<BaseSpellEffect>().TriggerSpellEffect(other);
             }
