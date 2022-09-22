@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthRegenerationRate: 1
-  regenerationDelay: 1
+  healthRegenerationRate: 5
+  regenerationDelay: 3
 --- !u!114 &672608039572824767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,11 +660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490012569495243269, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.732
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 490012569495243269, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.034
       objectReference: {fileID: 0}
     - target: {fileID: 490012569495243269, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -716,7 +716,15 @@ PrefabInstance:
       objectReference: {fileID: 6400327463664624117}
     - target: {fileID: 1944228630289704228, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
       propertyPath: gunSettings.rpm
-      value: 300
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944228630289704228, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
+      propertyPath: gunSettings.clipSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944228630289704228, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
+      propertyPath: attackSettings.damage
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
@@ -788,6 +796,10 @@ PrefabInstance:
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 824040614758229415}
+    - target: {fileID: 4155855481275989125, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
+      propertyPath: attackSettings.damage
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
 --- !u!4 &6342092431308384486 stripped
@@ -804,11 +816,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 502390784434487028, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 987143107853542478, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3192094626216377523, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
+      propertyPath: FPCamera
+      value: 
+      objectReference: {fileID: 824040614758229415}
+    - target: {fileID: 3192094626216377523, guid: 2eda32bf3a246d04398ecb8d2cbb431e, type: 3}
+      propertyPath: attackSettings.damage
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 818932657389367950, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
       propertyPath: m_PlayOnAwake
@@ -894,19 +914,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.82
+      value: -0.021
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.33
+      value: -0.041999996
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.52
+      value: 0.039
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.08417772
+      value: 0.99995744
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -914,7 +934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9964508
+      value: -0.009226996
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -926,7 +946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -189.657
+      value: -1.057
       objectReference: {fileID: 0}
     - target: {fileID: 1627623732718037967, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -944,6 +964,18 @@ PrefabInstance:
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 824040614758229415}
+    - target: {fileID: 6366895783414502938, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
+      propertyPath: gunSettings.rpm
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366895783414502938, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
+      propertyPath: gunSettings.ammoType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366895783414502938, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
+      propertyPath: attackSettings.damage
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
 --- !u!198 &6400327463664624117 stripped
