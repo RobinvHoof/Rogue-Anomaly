@@ -4998,7 +4998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellIcon: {fileID: 2800000, guid: dbf362703cd993545bbfe2c8e3d759bc, type: 3}
   SpellCost: 10
-  SpellDamage: 10
+  SpellDamage: 25
+  SpellFireRate: 1
 --- !u!54 &2558165108058627885
 Rigidbody:
   m_ObjectHideFlags: 0
