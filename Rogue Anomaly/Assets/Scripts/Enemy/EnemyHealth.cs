@@ -57,6 +57,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
             GetComponent<EnemyAI_Boss>().enabled = false;
             EnemyWeapon[] weaponScripts = GetComponentsInChildren<EnemyWeapon>();
             foreach (EnemyWeapon script in weaponScripts) script.enabled = false;
+            Destroy(gameObject);
         }
     }
 }
