@@ -50,7 +50,7 @@ public class EnemyHealth : MonoBehaviour, IAttackable
         else if (GetComponent<EnemyAI>() != null)
         {
             GetComponent<EnemyAI>().enabled = false;
-            Destroy(GetComponent<EnemyAI>());
+            Destroy(GetComponent<EnemyAI>().gameObject);
         }
         else if (GetComponent<EnemyAI_Boss>() != null)
         {
