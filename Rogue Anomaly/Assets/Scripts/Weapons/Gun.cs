@@ -100,7 +100,7 @@ public class Gun : Attack
                         fragileVampirismMutation.TriggerEvent(this.gameObject, "shotFired");
 
                         if (Physics.Raycast(FPCamera.transform.position, randomVector, out hit, gunSettings.range, ~gunSettings.penetrateLayers.value, QueryTriggerInteraction.Collide))
-                        {                    
+                        {
                             IAttackable target = hit.collider.GetComponent<IAttackable>();
                             if (target != null && target as PlayerHealth == null)
                             {
