@@ -13,7 +13,7 @@ public class MagicMissile : BaseSpellEffect
 
     private void Start()
     {
-        ManaDamage = gameObject.GetComponent<SpawnSpell>().CurrentMana;
+        ManaDamage = GameObject.Find("SpellSystem").GetComponent<SpawnSpell>().CurrentMana;
     }
     public override void TriggerSpellEffect(Collider other)
     {

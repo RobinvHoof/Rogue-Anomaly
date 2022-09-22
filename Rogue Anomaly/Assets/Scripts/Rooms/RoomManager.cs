@@ -7,26 +7,19 @@ public class RoomManager : MonoBehaviour
     [SerializeField] GameObject[] doors;
 
     public bool Cleared { get; private set; } = false;
+    public bool Active { get; private set; } = false;
 
     public void TriggerRoomEnter()
     {
+        Active = true;
         CloseAllDoors();
     }
 
     public void TriggerRoomCleared()
     {
-        OpenAllDoors();
         Cleared = true;
-    }
-
-    protected void OpenDoor(int doorNum)
-    {
-        doors[doorNum].GetComponent<Animator>().SetBool("opened", true);
-    }
-
-    protected void CloseDoor(int doorNum)
-    {
-        doors[doorNum].GetComponent<Animator>().SetBool("opened", false);
+        Active = false;
+        OpenAllDoors();
     }
 
     protected void OpenAllDoors()
@@ -34,6 +27,7 @@ public class RoomManager : MonoBehaviour
         foreach (GameObject door in doors)
         {
             door.GetComponent<Animator>().SetBool("opened", true);
+            door.GetComponent<AudioSource>().PlayDelayed(0.6f);
         }
     }
 
@@ -42,6 +36,19 @@ public class RoomManager : MonoBehaviour
         foreach (GameObject door in doors)
         {
             door.GetComponent<Animator>().SetBool("opened", false);
+            door.GetComponent<AudioSource>().PlayDelayed(1f);
         }
     }
+
+    // Unused methods, for now...
+    //
+    // protected void OpenDoor(int doorNum)
+    // {
+    //     doors[doorNum].GetComponent<Animator>().SetBool("opened", true);
+    // }
+
+    // protected void CloseDoor(int doorNum)
+    // {
+    //     doors[doorNum].GetComponent<Animator>().SetBool("opened", false);
+    // }
 }

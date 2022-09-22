@@ -5,6 +5,7 @@ using UnityEngine;
 public class LaserGun : Gun
 {
     [SerializeField] public ParticleSystem laser;
+
     // private AmmoManager ammoManager;
     // private FragileVampirismMutation fragileVampirismMutation;
 

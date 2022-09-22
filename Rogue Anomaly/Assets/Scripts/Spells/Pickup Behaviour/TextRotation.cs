@@ -5,12 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class TextRotation : MonoBehaviour
 {
-
+    [SerializeField]
     Transform target;
-    private void Start()
-    {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-    }
 
     // Update is called once per frame
     void Update()

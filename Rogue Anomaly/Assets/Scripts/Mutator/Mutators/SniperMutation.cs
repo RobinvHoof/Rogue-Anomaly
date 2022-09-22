@@ -8,7 +8,7 @@ public class SniperMutation : BaseMutation
     [SerializeField]
     public GameObject weaponGroup;
 
-    public SniperMutation() : base("Sniper Mode", "Ready your scopes and pull out the campfire. You fire four times slower but your shots deal five times as much damage!") {}
+    public SniperMutation() : base("Götterdämmerung", "Ready your scopes and pull out the campfire. You fire four times slower but your shots deal five times as much damage!") {}
     
     public override void TriggerEvent(GameObject source, string eventName, params object[] parameters)
     {

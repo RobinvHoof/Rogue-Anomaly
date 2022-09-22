@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,9 +13,15 @@ public class SpellDisplay : MonoBehaviour
     [SerializeField]
     GameObject SpellToGive;
 
+    [SerializeField]
+    List<GameObject> Spells;
+
+    System.Random random = new System.Random();
 
     private void Start()
     {
+        ChooseSpell();
+
         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 0.05f, transform.position.z);
         DisplayParticle = Instantiate(DisplayParticle,transform);
@@ -24,8 +31,14 @@ public class SpellDisplay : MonoBehaviour
         GetComponent<TextMeshPro>().text = SpellToGive.name;
     }
 
+    private void ChooseSpell()
+    {
+        SpellToGive = Spells[random.Next(Spells.Count)];
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hello!");
         if (other.tag == "Player")
         {
             other.GetComponentInChildren<SpawnSpell>().currentSpell = SpellToGive;
