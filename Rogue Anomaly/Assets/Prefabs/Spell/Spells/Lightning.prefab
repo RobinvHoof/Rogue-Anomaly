@@ -5016,7 +5016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellIcon: {fileID: 2800000, guid: a49fab75785470842aa7fd5c8b4ab6f9, type: 3}
   SpellCost: 5
-  SpellDamage: 5
+  SpellDamage: 10
   SpellFireRate: 0.1
 --- !u!1 &1167830495793948
 GameObject:
