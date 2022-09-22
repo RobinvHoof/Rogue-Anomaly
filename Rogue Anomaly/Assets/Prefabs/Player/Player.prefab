@@ -724,7 +724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944228630289704228, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
       propertyPath: attackSettings.damage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52fd279a90f033f4d91eb2068b2b8a7a, type: 3}
@@ -797,8 +797,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 824040614758229415}
     - target: {fileID: 4155855481275989125, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
+      propertyPath: gunSettings.rpm
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155855481275989125, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
       propertyPath: attackSettings.damage
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f47797cf8b8cd348a8bc3f857b32712, type: 3}
@@ -966,7 +970,7 @@ PrefabInstance:
       objectReference: {fileID: 824040614758229415}
     - target: {fileID: 6366895783414502938, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: gunSettings.rpm
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6366895783414502938, guid: f5ef430e0bf00334d994d9d247c9c9c8, type: 3}
       propertyPath: gunSettings.ammoType
